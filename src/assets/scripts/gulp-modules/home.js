@@ -5,7 +5,7 @@ import screen4 from './home/home-section-4-panorama';
 import screen5 from './home/home-section-5-text-animation';
 import screen5Slider from './home/home-section-5-slider';
 import screen6 from './home/home-section-6-text-animation';
-import screen7Slider from './home/home-section-7-slider';
+import galleryAnimation from './home/home-section-7-slider';
 
 function homeInit() {
   screen1();
@@ -17,7 +17,7 @@ function homeInit() {
   screen5Slider();
 
   screen6();
-  screen7Slider();
+  galleryAnimation();
 }
 
 homeInit();
