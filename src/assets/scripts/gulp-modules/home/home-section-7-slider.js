@@ -51,24 +51,36 @@ export default function galleryAnimation() {
         trigger: image,
         containerAnimation: scrollTween,
         scrub: true,
-        start: '-6% left',
-        end: '-5% left',
+        start: '-10% left',
+        end: '80% left',
         markers: true,
-      }
+        onEnter: () => {
+          show(image);
+        },
+        onLeave: () => {
+          hidden(image);
+        },
+      },
     })
-      .fromTo(image.querySelector('.section-7__card__decor img'), {
-        scale: 1
-      }, {
-        scale: 20,
-        duration: 2,
-      })
-      .fromTo(image.querySelector('.section-7__card__decor'), {
-        autoAlpha: 1
-      }, {
-        autoAlpha: 0,
-        duration: 2,
-        delay: .2,
-      })
-  })
 
+    function show(image) {
+      const img = image.querySelector('.section-7__card__decor img');
+      const imgBg = image.querySelector('.section-7__card__decor');
+
+      img.style.transform = 'scale(20)';
+      img.style.transition = 'transform .3s ease-in-out';
+      imgBg.style.opacity = '0';
+      imgBg.style.transition = 'opacity .3s .3s ease-in-out';
+    }
+
+    function hidden(image) {
+      const img = image.querySelector('.section-7__card__decor img');
+      const imgBg = image.querySelector('.section-7__card__decor');
+
+      imgBg.style.opacity = '0';
+      imgBg.style.transition = 'opacity .3s ease-in-out';
+      img.style.transform = 'scale(1)';
+      img.style.transition = 'transform .3s .3s ease-in-out';
+    }
+  })
 }
