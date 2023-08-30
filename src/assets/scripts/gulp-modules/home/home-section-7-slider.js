@@ -42,7 +42,23 @@ export default function galleryAnimation() {
 
   console.log(cardWidth);
 
+
   $sliderImages.forEach(image => {
+    const imageTimeline = gsap.timeline({
+      paused: true,
+    })
+    .fromTo(image.querySelector('.section-7__card__decor img'), {
+      scale: 1
+    }, {
+      scale: 20,
+      duration: 3
+    })
+    .fromTo(image.querySelector('.section-7__card__decor'), {
+      autoAlpha: 1
+    }, {
+      autoAlpha: 0,
+      duration: 3
+    }, '<')
     gsap.timeline({
       defaults: {
         ease: 'none'
@@ -54,33 +70,42 @@ export default function galleryAnimation() {
         start: '-10% left',
         end: '80% left',
         markers: true,
+        onEnterBack: () => {
+          imageTimeline.play();
+        },
         onEnter: () => {
-          show(image);
+          imageTimeline.play();
+          // show(image);
+        },
+        onLeaveBack: () => {
+          imageTimeline.reverse();
+          // hidden(image);
         },
         onLeave: () => {
-          hidden(image);
+          imageTimeline.reverse();
+          // hidden(image);
         },
       },
     })
 
-    function show(image) {
-      const img = image.querySelector('.section-7__card__decor img');
-      const imgBg = image.querySelector('.section-7__card__decor');
+    // function show(image) {
+    //   const img = image.querySelector('.section-7__card__decor img');
+    //   const imgBg = image.querySelector('.section-7__card__decor');
 
-      img.style.transform = 'scale(20)';
-      img.style.transition = 'transform .3s ease-in-out';
-      imgBg.style.opacity = '0';
-      imgBg.style.transition = 'opacity .3s .3s ease-in-out';
-    }
+    //   img.style.transform = 'scale(20)';
+    //   img.style.transition = 'transform .3s ease-in-out';
+    //   imgBg.style.opacity = '0';
+    //   imgBg.style.transition = 'opacity .3s .3s ease-in-out';
+    // }
 
-    function hidden(image) {
-      const img = image.querySelector('.section-7__card__decor img');
-      const imgBg = image.querySelector('.section-7__card__decor');
+    // function hidden(image) {
+    //   const img = image.querySelector('.section-7__card__decor img');
+    //   const imgBg = image.querySelector('.section-7__card__decor');
 
-      imgBg.style.opacity = '0';
-      imgBg.style.transition = 'opacity .3s ease-in-out';
-      img.style.transform = 'scale(1)';
-      img.style.transition = 'transform .3s .3s ease-in-out';
-    }
+    //   imgBg.style.opacity = '0';
+    //   imgBg.style.transition = 'opacity .3s ease-in-out';
+    //   img.style.transform = 'scale(1)';
+    //   img.style.transition = 'transform .3s .3s ease-in-out';
+    // }
   })
 }
