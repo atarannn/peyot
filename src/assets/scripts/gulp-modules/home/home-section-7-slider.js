@@ -1,11 +1,11 @@
 export default function galleryAnimation() {
   const  $sliderImages = Array.from(document.querySelectorAll('.section-7__card'));
+  const cardWidth = $sliderImages[0].offsetWidth;
   const sliderWidth = $sliderImages.reduce((acc,el) => {
     const margin = getComputedStyle(el).marginLeft ?
       parseInt(getComputedStyle(el).marginLeft) :
       0;
-    console.log(margin);
-    acc+=el.getBoundingClientRect().width + margin;
+    acc+=el.getBoundingClientRect().width;
     return acc;
   }, 0);
 
@@ -35,12 +35,12 @@ export default function galleryAnimation() {
     }
   })
     .fromTo('.section-7-hor-scroll', {
-      x: window.innerWidth  * 0.45
+      x: window.innerWidth  * 0.4
     },{
-      x: (sliderWidth - window.innerWidth) * -1 - 100
+      x: (sliderWidth - window.innerWidth) * -1 - (window.innerWidth - cardWidth)
     })
 
-  console.log($sliderImages);
+  console.log(cardWidth);
 
   $sliderImages.forEach(image => {
     gsap.timeline({
@@ -51,14 +51,23 @@ export default function galleryAnimation() {
         trigger: image,
         containerAnimation: scrollTween,
         scrub: true,
-        start: '0% left',
-        end: '0% right'
+        start: '-6% left',
+        end: '-5% left',
+        markers: true,
       }
     })
-      .fromTo(image, {
-        // scale: 0.95
+      .fromTo(image.querySelector('.section-7__card__decor img'), {
+        scale: 1
       }, {
-        // scale: 1,
+        scale: 20,
+        duration: 2,
+      })
+      .fromTo(image.querySelector('.section-7__card__decor'), {
+        autoAlpha: 1
+      }, {
+        autoAlpha: 0,
+        duration: 2,
+        delay: .2,
       })
   })
 

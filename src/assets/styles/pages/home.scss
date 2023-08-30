@@ -1320,6 +1320,25 @@
         object-fit: cover;
       }
 
+      &__decor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: $bg;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        img {
+          height: auto;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+
       &__text {
         width: 80%;
         position: absolute;
