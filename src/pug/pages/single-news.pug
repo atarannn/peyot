@@ -1,0 +1,102 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'single-news'
+    var id_page = 'id-page-single-news'
+    var class_page = 'class-page-single-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Компанію забудовника відзначено професійною нагородою премії «Український Будівельний Олімп – 2021»',
+        link: pagesLink[0].single-news
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/inner-loader.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/form.js')
+  script(defer src='./assets/scripts/sideform.js')
+  script(defer src='./assets/scripts/text-animation.js')
+  script(defer src='./assets/scripts/single-news.js')
+block content
+  include ../components/breadcrumbs/breadcrumbs
+  .page__wrapper.section-fields
+    .single-news__wrapper
+      #back-btn.back-btn.link--hover-3
+        +svg('arrow').svg
+        .dark-text-20 Назад
+      .single-news__info
+        .single-news__info__head
+          .dark-text-24 Яким буде Київ через 10 років? За версією нашої компанії, він буде найкомфортнішим містом у світі.
+          .dark-text-16 Саме такий BHAG ми собі поставили та до якого впевнено рухаємося з кожним новим проєктом. Про те, що вже зараз ми змінюємо обличчя Києва та створюємо проєкти майбутнього, говорить і редакція НВ. У новому номері вона разом з архітекторами, забудовниками та урбаністами склала рейтинг 10 знакових об’єктів столиці та включила до нього відразу два проєкти, які ми реалізуємо спільно з партнерами забудовника1 і забудовника 2 — ми хочемо розказати вам про ці проєкти та показати їхні сильні сторони.
+        img(src="./assets/images/news/1.png")
+        .single-news__info__text
+          .dark-text-24 Наш проєкт відзначив за наш підхід до будівництва кварталів, насичену інфраструктуру та головну родзинку району — набережну завдовжки 1 км.
+          ul.list.dark-text-16 Вона буде відкрита для всіх охочих і стане улюбленим місцем для відпочинку та прогулянок містян і мешканців району. Вона буде відкрита для всіх охочих і стане улюбленим місцем для відпочинку та прогулянок містян і мешканців району. Вона буде відкрита для всіх охочих і стане улюбленим місцем для відпочинку та прогулянок містян і мешканців району:
+            li.dark-text-16 «Гарна набережна, яка відкриється на нашому проєкті, стане окрасою Києва», — зазначає у статті НВ головний архітектор Архіматики Дмитро Васильєв.
+            li.dark-text-16 «Гарна набережна, яка відкриється на нашому проєкті
+            li.dark-text-16 «Гарна набережна нашого проєкту, стане окрасою Києва», — зазначає
+
+        a(href="#").btn-style.link--hover-3
+          .dark-text-20 Обрати квартиру
+          +svg('arrow').svg
+      .data.dark-text-16 01 / 12 / 2023
+    .last-news
+      // на планшеті потрібно виводити лише 2 новини, на більших розшиеннях 3
+      .dark-title Останні новини
+      .news-list
+        a(href="single-news.html").news-card.news
+          .news-card-top
+            .news-card-top__action
+              +svg('footer-icon')
+              .dark-text-16 Новина
+            .news-card-top__data
+              +svg('news-calendar')
+              .dark-text-16 01 / 12 / 2023
+            .img
+              img(src="./assets/images/news/1.png")
+          .news-card-bottom
+            .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+            +svg('arrow').svg
+        a(href="#").news-card.action
+          .news-card-top
+            .news-card-top__action
+              +svg('footer-icon')
+              .dark-text-16 Акція
+            .news-card-top__data
+              +svg('news-calendar')
+              .dark-text-16 01 / 12 / 2023
+            .img
+              img(src="./assets/images/news/1.png")
+          .news-card-bottom
+            .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+            +svg('arrow').svg
+        a(href="#").news-card.action
+          .news-card-top
+            .news-card-top__action
+              +svg('footer-icon')
+              .dark-text-16 Акція
+            .news-card-top__data
+              +svg('news-calendar')
+              .dark-text-16 01 / 12 / 2023
+            .img
+              img(src="./assets/images/news/1.png")
+          .news-card-bottom
+            .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+            +svg('arrow').svg
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

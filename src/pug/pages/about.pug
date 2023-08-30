@@ -1,0 +1,264 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'about'
+    var id_page = 'id-page-about'
+    var class_page = 'class-page-about'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Про проєкт',
+        link: pagesLink[0].about
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/inner-loader.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/form.js')
+  script(defer src='./assets/scripts/sideform.js')
+  script(defer src='./assets/scripts/text-animation.js')
+  script(defer src='./assets/scripts/about.bundle.js')
+
+block content
+  include ../components/breadcrumbs/breadcrumbs
+  .page__wrapper
+    .section-1
+      img(src="./assets/images/about/1.jpg")
+      .section-1__text.light-text-48 Для людей, які цінують свободу та першість у всьому
+    .section-2
+      .section-2__head
+        .dark-text-52 КОНЦЕПЦІЯ «Місто навколо тебе»
+        .section-2__head__right
+          +svg('icon-3').decor
+          .dark-text-20 Навколо та всередині PEYOT сконцентровані всі атрибути центра міста:
+          a(href="#").arrow__down
+            +svg('arrow').svg
+      .section-2__info
+        .section-2__info__right
+          .section-2__info__right__card
+            .decor.decor-left
+            .num.dark-text-36 01.
+            .text.dark-text-36 Розкішні квартири та апартаменти
+            .item.img
+              figure.item__fig.js-plane
+                .aspect(style="--aspect: 90.75%")
+                img.item__img(src="./assets/images/about/2.jpg" alt="Some image")
+              img.item__img-mobile(src="./assets/images/about/2-2.jpg" alt="Some image")
+          .section-2__info__right__card
+            .decor.decor-right
+            .num.dark-text-36 02.
+            .text.dark-text-36 Комерційні приміщення
+            .img
+              figure.item__fig.js-plane
+                .aspect(style="--aspect: 90.75%")
+                img.item__img(src="./assets/images/about/3.jpg" alt="Some image")
+              img.item__img-mobile(src="./assets/images/about/3-2.jpg")
+          .section-2__info__right__card
+            .decor.decor-left
+            .num.dark-text-36 03.
+            .text.dark-text-36 Підземні та наземні паркінги
+            .img
+              figure.item__fig.js-plane
+                .aspect(style="--aspect: 90.75%")
+                img.item__img(src="./assets/images/about/4.jpg" alt="Some image")
+              img.item__img-mobile(src="./assets/images/about/4-2.jpg")
+          .section-2__info__right__card
+            .decor.decor-right
+            .num.dark-text-36 04.
+            .text.dark-text-36 Розвинена інфраструктура
+            .img
+              figure.item__fig.js-plane
+                .aspect(style="--aspect: 90.75%")
+                img.item__img(src="./assets/images/about/5.jpg" alt="Some image")
+              img.item__img-mobile(src="./assets/images/about/5-2.jpg")
+          .section-2__info__right__card
+            .decor.decor-left
+            .num.dark-text-36 05.
+            .text.dark-text-36 Величезний вибір місць для відпочинку
+            .img
+              figure.item__fig.js-plane
+                .aspect(style="--aspect: 90.75%")
+                img.item__img(src="./assets/images/about/6.jpg" alt="Some image")
+              img.item__img-mobile(src="./assets/images/about/6-2.jpg")
+    .section-3
+      .section-3__info
+        .decor
+        .dark-text-52 Ексклюзивність розташування комплексу – крокова доступність до однієї з головних «зелених зон» мегаполісу – яхт-клубу «Січ» на набережній р. Дніпро.
+    #section-4.section-4
+      .section-4__left
+        .dark-text-52 Зовнішня інфраструктура комплексу охоплює
+        .section-4__left__info
+          .section-4__info-row
+            .dark-text-20 01.
+            .dark-text-20 6 дитячих садочків
+          .section-4__info-row
+            .dark-text-20 02.
+            .dark-text-20 6 загальноосвітніх шкіл
+          .section-4__info-row
+            .dark-text-20 03.
+            .dark-text-20 6 супермаркетів
+          .section-4__info-row
+            .dark-text-20 04.
+            .dark-text-20 2 ТЦ
+          .section-4__info-row
+            .dark-text-20 05.
+            .dark-text-20 Кафе
+          .section-4__info-row
+            .dark-text-20 06.
+            .dark-text-20 Аптеки
+          .section-4__info-row
+            .dark-text-20 07.
+            .dark-text-20 Приватні лабораторії
+          .section-4__info-row
+            .dark-text-20 08.
+            .dark-text-20 Лікарню
+          .section-4__info-row
+            .dark-text-20 09.
+            .dark-text-20 Фітнес-центр
+          .section-4__info-row
+            .dark-text-20 10.
+            .dark-text-20 Автосервіс
+          .section-4__info-row
+            .dark-text-20 11.
+            .dark-text-20 Відділення «Нової Пошти».
+      .section-4__right
+        <video poster="./assets/images/about/video.jpg">
+          <source src="./assets/images/home/section-1/video.mov" type="video/mp4">
+        </video>
+        .section-4__video-btn.circle-animation
+          <svg class="open" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+          <path d="M3 9.59788V1.40212C3 1.00941 3.43197 0.769984 3.765 0.978124L10.3216 5.076C10.6349 5.27183 10.6349 5.72817 10.3216 5.924L3.765 10.0219C3.43198 10.23 3 9.99059 3 9.59788Z" fill=""/>
+          </svg>
+    .section-5
+      .decor
+      .section-5__left
+        .dark-text-52 ВНУТРІШНЯ ІНФРАСТРУКТУРА
+      .section-5__right
+        .section-5__right__card
+          .row
+            .dark-text-36 Дитячий майданчик
+            .dark-text-36 01.
+          img(src="./assets/images/about/7.jpg")
+        .section-5__right__card
+          .row
+            .dark-text-36 Спортивний майданчик
+            .dark-text-36 02.
+          img(src="./assets/images/about/8.jpg")
+        .section-5__right__card
+          .row
+            .dark-text-36 Зони відпочинку для дорослих
+            .dark-text-36 03.
+          img(src="./assets/images/about/9.jpg")
+        .section-5__right__card
+          .row
+            .dark-text-36 Велопарковки
+            .dark-text-36 04.
+          img(src="./assets/images/about/10.jpg")
+      .section-5__mobile
+        .swiper.section-5-mob-slider
+          .swiper-wrapper
+            .swiper-slide.section-5__right__card
+              .row
+                .dark-text-36 Дитячий майданчик
+                .dark-text-36 01.
+              img(src="./assets/images/about/7.jpg")
+            .swiper-slide.section-5__right__card
+              .row
+                .dark-text-36 Спортивний майданчик
+                .dark-text-36 02.
+              img(src="./assets/images/about/8.jpg")
+            .swiper-slide.section-5__right__card
+              .row
+                .dark-text-36 Зони відпочинку для дорослих
+                .dark-text-36 03.
+              img(src="./assets/images/about/9.jpg")
+            .swiper-slide.section-5__right__card
+              .row
+                .dark-text-36 Велопарковки
+                .dark-text-36 04.
+              img(src="./assets/images/about/10.jpg")
+    .section-6
+      .section-6-btn-mob(data-call-form)
+        span.light-text-36 Зв'язатися з нами
+      form(data-form-about autocomplete="off").form
+        .form-title.dark-text-36 Зв'язатися з нами
+        .row
+          .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive").first-offset
+            .input-title Ваше ім'я*
+            input(type='text' name="name" placeholder="Ім'я").form-field__input
+            .input-message(data-input-message)
+          .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+            .input-title Ваш телефон*
+            input(type='text' name="phone" placeholder="Телефон").form-field__input
+            .mask-absolute.js-mask-absolute + 380 __-___-__-__
+            .input-message(data-input-message)
+          button( type="submit" data-btn-submit).submit-btn.btn-style.link--hover-3
+            span(data-btn-submit-text).dark-text-20 Надіслати повідомлення
+            +svg('arrow').svg
+    .section-7
+      .section-7__head
+        .top Переваги
+        .center
+        .bottom Переваги
+      .section-7__inner
+        .section-7__cards-wrapper
+          .section-7__cards-scroll
+            .section-7__card
+              .section-7__card-left
+                .section-7__card-left__top
+                  +svg('icon')
+                  .light-text-24 01.
+                .light-text-36 Архітектура
+                .light-text-16 Контурне зовнішнє підсвічування фасадів підкреслює лаконічність та вишуканість архітектури, акцентує та затримує погляд на правильних геометричних формах новобудови.
+              .section-7__card-right
+                img(src="./assets/images/about/11.jpg")
+            .section-7__card
+              .section-7__card-left
+                .section-7__card-left__top
+                  +svg('icon')
+                  .light-text-24 02.
+                .light-text-36 Енергоефективність
+                .light-text-16 Автономність комплексу відображається у власних котельнях, що будуть розташовані на даху та системі очищення води. Кожна квартира буде оснащена лічильниками води та електроенергії.
+              .section-7__card-right
+                img(src="./assets/images/about/12.jpg")
+            .section-7__card
+              .section-7__card-left
+                .section-7__card-left__top
+                  +svg('icon')
+                  .light-text-24 03.
+                .light-text-36 Безпека авто
+                .light-text-16 На території комплексу знаходитимуться наземний та дворівневий критий паркінги з системами димовидалення, пожежогасіння та пожежної сигналізаці. Також на території будуть доступні 120 паркомісць на гостьовій стоянці. Цілодобова охорона та відеоспостереження забезпечать безпеку авто навіть тоді, коли ви у відрядженні чи у відпустці.
+              .section-7__card-right
+                img(src="./assets/images/about/13.jpg")
+        .section-7__inner__text
+          .light-text-16 ( BUSINESS )
+          .light-text-52 PEYOT - мультифункціональний комплекс, що стане важливою складовою бізнес-частини мікрорайону. Проєкт включатиме в себе комерційні приміщення в окремій будівлі. Магазини, різноманітні сервіси та приватні кабінети, - все це на території PEYOT.
+        .section-7__inner__block
+          .section-7__inner__block__left
+            img(src="./assets/images/about/11.jpg")
+          .section-7__inner__block__right
+            .light-text-16 ( PEYOT – HOME AND APARTMENTS )
+            .light-text-36 Важливим аспектом комерційної частини є те, що вхід до цієї групи комплексу буде розташовано на "червоній лінії", тож, внутрішній двір залишатиметься закритим від сторонніх.
+            a(href="#").btn-style.link--hover-4
+              .light-text-20 Обрати квартиру
+              +svg('arrow').svg
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+  include ../includes/form-thanks.pug
+

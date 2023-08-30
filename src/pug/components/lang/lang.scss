@@ -1,0 +1,25 @@
+.lang-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  @include to(680px) {
+    gap: 8px;
+  }
+  li {
+    font-size: var(--text-font14);
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    line-height: 120%;
+    text-align: center;
+    a {
+      color: $bc;
+    }
+    &.active {
+      a {
+        color: #6B7582;
+        pointer-events: none;
+      }
+    }
+  }
+}

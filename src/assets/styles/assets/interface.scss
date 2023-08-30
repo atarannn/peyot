@@ -1,0 +1,221 @@
+.mobile, .tablet {
+  [id*="home"] {
+    .section-1 {
+      height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+      height: calc(var(--vh, 1vh) * 100);
+    }
+  }
+}
+
+.page__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  min-height: 100vh;
+  height: auto;
+  background: $bg;
+  background-blend-mode: overlay;
+  overflow-y: auto;
+  //overflow-x: hidden;
+	.page__content {
+		flex-grow: 1;
+	}
+	.page__footer-wrapper {
+		flex-shrink: 0;
+	}
+}
+
+.page__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.btn-style {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+}
+
+.section-fields {
+  padding: 0 var(--field);
+}
+
+.light-title {
+  font-family: $default-font2;
+  font-weight: 300;
+  font-size: var(--font-128);
+  line-height: 100%;
+  letter-spacing: -5.12px;
+  font-style: normal;
+  text-transform: uppercase;
+  color: $wc;
+
+  @include to(680px) {
+    letter-spacing: -1.92px;
+  }
+}
+
+.dark-title {
+  font-family: $default-font2;
+  font-weight: 300;
+  font-size: var(--font-128);
+  line-height: 100%;
+  letter-spacing: -5.12px;
+  font-style: normal;
+  color: $bc;
+
+  @include to(680px) {
+    letter-spacing: -1.92px;
+  }
+}
+
+.dark-text-52 {
+  color: $bc;
+  font-family: $default-font3;
+  font-size: var(--font-52);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 52px */
+  letter-spacing: -2.08px;
+  text-transform: uppercase;
+}
+
+.light-text-52 {
+  color: $wc;
+  font-family: $default-font3;
+  font-size: var(--font-52);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 52px */
+  letter-spacing: -2.08px;
+  text-transform: uppercase;
+}
+
+.dark-text-48 {
+  color: $bc;
+  font-family: $default-font;
+  font-size: var(--font-48);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -1.92px;
+}
+
+.light-text-48 {
+  color: $wc;
+  font-family: $default-font;
+  font-size: var(--font-48);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -1.92px;
+}
+
+.dark-text-36 {
+  color: $grey;
+  font-family: $default-font;
+  font-size: var(--font-36);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -1.26px;
+  text-transform: uppercase;
+}
+
+.light-text-36 {
+  color: $wc;
+  font-family: $default-font;
+  font-size: var(--font-36);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -1.26px;
+  text-transform: uppercase;
+}
+
+.grey-text-36 {
+  color: $light-grey;
+  font-family: $default-font;
+  font-size: var(--font-36);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -1.26px;
+  text-transform: uppercase;
+}
+
+.dark-text-24 {
+  color: $bc;
+  font-family: $default-font;
+  font-size: var(--font-24);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
+  letter-spacing: -0.96px;
+}
+
+.light-text-24 {
+  color: $wc;
+  font-family: $default-font;
+  font-size: var(--font-24);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
+  letter-spacing: -0.96px;
+}
+
+.dark-text-20 {
+  color: $bc;
+  font-family: $default-font3;
+  font-size: var(--font-20);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+}
+
+.light-text-20 {
+  color: $wc;
+  font-family: $default-font3;
+  font-size: var(--font-20);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+}
+
+.dark-text-16 {
+  color: $grey;
+  font-family: $default-font;
+  font-size: var(--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.64px;
+}
+
+.light-text-16 {
+  color: $wc;
+  font-family: $default-font;
+  font-size: var(--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+  letter-spacing: -0.64px;
+}
+
+.svg {
+  height: 28px;
+  width: 28px;
+
+  @include to(1600px) {
+    height: 24px;
+    width: 24px;
+  }
+}

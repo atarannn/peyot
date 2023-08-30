@@ -1,0 +1,210 @@
+$default-font: "MontBlanc-Regular", sans-serif;
+$default-font2: "MontBlanc-Light", sans-serif;
+$default-font3: "MontBlanc-Bold", sans-serif;
+$default-font4: "MontBlanc-ExtraBold", sans-serif;
+
+$bg: #f3f3f3;
+
+$wc: #FFFFFF;
+$bc: #1D1D1B;
+
+$grey: #46484B;
+$light-grey: #888A8C;
+
+$brown: #CCC7BF;
+$dark-brown: #5E4647;
+$cream: #E4E0DC;
+
+:root {
+  --field: 40px;
+
+  --footer-offset-100: 100px;
+  --footer-offset-50: 50px;
+  --footer-social-btn: 80px;
+
+  --top-bottom-offset: 210px;
+  --top-bottom-offset-150: 150px;
+  --top-bottom-offset-100: 100px;
+  --top-bottom-offset-90: 90px;
+
+  --breadcrumbs-margin: 60px;
+  --page-bottom-margin: 210px;
+
+  --offset-60: 60px;
+  --offset-40: 40px;
+  --offset-30: 30px;
+  --offset-28: 28px;
+  --offset-24: 24px;
+  --offset-20: 20px;
+  --offset-16: 16px;
+
+  --padding-90: 90px;
+  --padding-50: 50px;
+  --padding-40: 40px;
+  --padding-32: 32px;
+  --padding-20: 20px;
+
+  --font-128: 128px;
+  --font-52: 52px;
+  --font-48: 48px;
+  --font-36: 36px;
+  --font-24: 24px;
+  --font-20: 20px;
+  --font-16: 16px;
+  --font-10: 10px;
+
+  --header-font: 20px;
+  --header-h: 80px;
+  --header-offset: 60px;
+
+  --header-menu-font: 52px;
+
+  --circle-btn: 53px;
+}
+
+@media screen and (max-width: 1600px) {
+  :root {
+    --field: 40px;
+
+    --footer-offset-100: 50px;
+    --footer-offset-50: 50px;
+    --footer-social-btn: 80px;
+
+    --top-bottom-offset: 150px;
+    --top-bottom-offset-150: 150px;
+    --top-bottom-offset-100: 100px;
+    --top-bottom-offset-90: 90px;
+
+    --breadcrumbs-margin: 60px;
+    --page-bottom-margin: 150px;
+
+    --offset-60: 40px;
+    --offset-40: 20px;
+    --offset-30: 20px;
+    --offset-28: 28px;
+    --offset-24: 20px;
+    --offset-20: 20px;
+    --offset-16: 16px;
+
+    --padding-90: 62px;
+    --padding-50: 36px;
+    --padding-40: 20px;
+    --padding-32: 20px;
+    --padding-20: 13px;
+
+    --font-128: 90px;
+    --font-52: 40px;
+    --font-48: 36px;
+    --font-36: 28px;
+    --font-24: 20px;
+    --font-20: 16px;
+    --font-16: 14px;
+    --font-10: 10px;
+
+    --header-font: 16px;
+    --header-h: 60px;
+    --header-offset: 40px;
+
+    --header-menu-font: 40px;
+
+    --circle-btn: 42px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --field: 24px;
+
+    --footer-offset-100: 50px;
+    --footer-offset-50: 50px;
+    --footer-social-btn: 60px;
+
+    --top-bottom-offset: 150px;
+    --top-bottom-offset-150: 100px;
+    --top-bottom-offset-100: 100px;
+    --top-bottom-offset-90: 60px;
+
+    --breadcrumbs-margin: 40px;
+    --page-bottom-margin: 100px;
+
+    --offset-60: 40px;
+    --offset-40: 20px;
+    --offset-30: 20px;
+    --offset-28: 12px;
+    --offset-24: 20px;
+    --offset-20: 20px;
+    --offset-16: 16px;
+
+    --padding-90: 40px;
+    --padding-50: 36px;
+    --padding-40: 20px;
+    --padding-32: 20px;
+    --padding-20: 20px;
+
+    --font-128: 90px;
+    --font-52: 40px;
+    --font-48: 36px;
+    --font-36: 28px;
+    --font-24: 20px;
+    --font-20: 16px;
+    --font-16: 16px;
+    --font-10: 10px;
+
+    --header-font: 16px;
+    --header-h: 60px;
+    --header-offset: 32px;
+
+    --header-menu-font: 40px;
+
+    --circle-btn: 42px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  :root {
+    --field: 20px;
+
+    --footer-offset-100: 28px;
+    --footer-offset-50: 42px;
+    --footer-social-btn: 60px;
+
+    --top-bottom-offset: 70px;
+    --top-bottom-offset-150: 70px;
+    --top-bottom-offset-100: 42px;
+    --top-bottom-offset-90: 42px;
+
+    --breadcrumbs-margin: 30px;
+    --page-bottom-margin: 70px;
+
+    --offset-60: 20px;
+    --offset-40: 20px;
+    --offset-30: 20px;
+    --offset-28: 12px;
+    --offset-24: 20px;
+    --offset-20: 12px;
+    --offset-16: 12px;
+
+    --padding-90: 40px;
+    --padding-50: 36px;
+    --padding-40: 20px;
+    --padding-32: 16px;
+    --padding-20: 16px;
+
+    --font-128: 48px;
+    --font-52: 28px;
+    --font-48: 24px;
+    --font-36: 18px;
+    --font-24: 16px;
+    --font-20: 14px;
+    --font-16: 14px;
+    --font-10: 10px;
+
+    --header-font: 14px;
+    --header-h: 60px;
+    --header-offset: 32px;
+
+    --header-menu-font: 28px;
+
+    --circle-btn: 40px;
+  }
+}

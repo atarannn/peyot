@@ -1,0 +1,30 @@
+.form-wrapper(data-form-popup-wrapper)
+  .form-inner
+    .form-close(data-close-form)
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M6.58969 8.00781L0.224976 14.3725L1.63919 15.7867L8.00391 9.42203L14.3686 15.7867L15.7828 14.3725L9.41812 8.00781L15.7813 1.64461L14.3671 0.230394L8.00391 6.5936L1.6407 0.230393L0.226488 1.64461L6.58969 8.00781Z"/>
+      </svg>
+    form(data-form-popup autocomplete="off").form
+      .form-title.dark-text-36 Замовити дзвінок
+      .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive").first-offset
+        .input-title Ваше ім'я*
+        input(type='text' name="name" placeholder="Ім'я").form-field__input
+        .input-message(data-input-message)
+      .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+        .input-title Ваш телефон*
+        input(type='text' name="phone" placeholder="Телефон").form-field__input
+        .mask-absolute.js-mask-absolute + 380 __-___-__-__
+        .input-message(data-input-message)
+      button( type="submit" data-btn-submit).submit-btn.btn-style.link--hover-3
+        span(data-btn-submit-text).dark-text-20 Надіслати повідомлення
+        +svg('arrow').svg
+    .img-wrapper
+      img(src='./assets/images/form/1.jpg')
+    .form-thanks-wrapper(data-thanks-block)
+      .col
+        .dark-text-36 Заявка прийнята!
+        .dark-text-36 Дякуємо за звернення!
+      .decor
+        img(src='./assets/images/form/decor.svg')
+      .dark-text-24 Очікуйте на дзвінок з відділу продажів Peyot. Бажаємо гарного дня =)
+

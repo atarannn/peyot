@@ -1,0 +1,337 @@
+@import "vars";
+
+.mfp-3d-unfold {
+	.mfp-content {
+		perspective: 2000px;
+	}
+
+	.mfp-with-anim {
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+		transform-style: preserve-3d;
+		transform: rotateY(-60deg);
+	}
+
+	.mfp-bg {
+		opacity: 0;
+		transition: all 0.5s;
+	}
+}
+
+.mfp-ready {
+	.mfp-with-anim {
+		opacity: 1;
+		transform: rotateY(0deg);
+	}
+
+	.mfp-bg {
+		opacity: 0.8;
+	}
+}
+
+.mfp-removing {
+	.mfp-with-anim {
+		transform: rotateY(60deg);
+		opacity: 0;
+	}
+
+	.mfp-bg {
+		opacity: 0;
+	}
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 40%);
+  }
+}
+
+@keyframes MoveUpInitial {
+	to {
+		transform: translate3d(0,-105%,0);
+	}
+}
+
+@keyframes MoveUpEnd {
+	from {
+		transform: translate3d(0,100%,0);
+	}
+	to {
+		transform: translate3d(0,0,0);
+	}
+}
+
+@keyframes arrowAnimation {
+  0% {
+    transform: rotate(90deg) translateX(0px);
+  }
+  35% {
+    transform: rotate(90deg) translateX(10px);
+  }
+  75% {
+    transform: rotate(90deg) translateX(-10px);
+  }
+  100% {
+    transform: rotate(90deg) translateX(0px);
+  }
+}
+
+.link--hover {
+  position: relative;
+
+  &:before {
+    content: "";
+    background: $bc;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 130%;
+    left: 0;
+    pointer-events: none;
+    transform-origin: 0% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s;
+  }
+
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: $bc;
+    left: 0;
+    pointer-events: none;
+    content: "";
+    top: calc(130% - 2px);
+    transition: transform 0.3s;
+    transform-origin: 100% 50%;
+  }
+
+  @include from(1023px) {
+    &:hover {
+      &:before {
+        transform: scale3d(1, 1, 1);
+      }
+
+      &:after {
+        transform: scale3d(0, 1, 1);
+      }
+    }
+  }
+}
+
+.link--hover-2 {
+  .dark-text-36 {
+    position: relative;
+
+    &:before {
+      content: "";
+      background: $bc;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 130%;
+      left: 0;
+      pointer-events: none;
+      transform-origin: 0% 50%;
+      transform: scale3d(0, 1, 1);
+      transition: transform 0.3s;
+    }
+
+    &:after {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $bc;
+      left: 0;
+      pointer-events: none;
+      content: "";
+      top: calc(130% - 2px);
+      transition: transform 0.3s;
+      transform-origin: 100% 50%;
+    }
+  }
+
+  @include from(1023px) {
+    &:hover {
+      .dark-text-36 {
+        &:before {
+          transform: scale3d(1, 1, 1);
+        }
+
+        &:after {
+          transform: scale3d(0, 1, 1);
+        }
+      }
+    }
+  }
+}
+
+.link--hover-3 {
+  .dark-text-20 {
+    position: relative;
+
+    &:before {
+      content: "";
+      background: $bc;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 110%;
+      left: 0;
+      pointer-events: none;
+      transform-origin: 0% 50%;
+      transform: scale3d(0, 1, 1);
+      transition: transform 0.3s;
+    }
+
+    &:after {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $bc;
+      left: 0;
+      pointer-events: none;
+      content: "";
+      top: calc(110% - 2px);
+      transition: transform 0.3s;
+      transform-origin: 100% 50%;
+    }
+  }
+
+  @include from(1023px) {
+    &:hover {
+      .dark-text-20 {
+        &:before {
+          transform: scale3d(1, 1, 1);
+        }
+
+        &:after {
+          transform: scale3d(0, 1, 1);
+        }
+      }
+    }
+  }
+}
+
+.link--hover-4 {
+  .light-text-20 {
+    position: relative;
+
+    &:before {
+      content: "";
+      background: $wc;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 110%;
+      left: 0;
+      pointer-events: none;
+      transform-origin: 0% 50%;
+      transform: scale3d(0, 1, 1);
+      transition: transform 0.3s;
+    }
+
+    &:after {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $wc;
+      left: 0;
+      pointer-events: none;
+      content: "";
+      top: calc(110% - 2px);
+      transition: transform 0.3s;
+      transform-origin: 100% 50%;
+    }
+  }
+
+  @include from(1023px) {
+    &:hover {
+      .light-text-20 {
+        &:before {
+          transform: scale3d(1, 1, 1);
+        }
+
+        &:after {
+          transform: scale3d(0, 1, 1);
+        }
+      }
+    }
+  }
+}
+
+.link--hover-5 {
+  & > span {
+    position: relative;
+
+    &:before {
+      content: "";
+      background: $wc;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 110%;
+      left: 0;
+      pointer-events: none;
+      transform-origin: 100% 50%;
+      transform: scale3d(0, 1, 1);
+      transition: transform 0.3s;
+    }
+
+    @include from(1023px) {
+      &:hover {
+        &:before {
+          transform-origin: 0% 50%;
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    }
+  }
+}
+
+.link--hover-6 {
+  position: relative;
+
+  &:before {
+    content: "";
+    background: $wc;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 120%;
+    left: 0;
+    pointer-events: none;
+    transform-origin: 0% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s;
+  }
+
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: $wc;
+    left: 0;
+    pointer-events: none;
+    content: "";
+    top: calc(120% - 2px);
+    transition: transform 0.3s;
+    transform-origin: 100% 50%;
+  }
+
+  @include from(1023px) {
+    &:hover {
+      &:before {
+        transform: scale3d(1, 1, 1);
+      }
+
+      &:after {
+        transform: scale3d(0, 1, 1);
+      }
+    }
+  }
+}

@@ -1,0 +1,385 @@
+[id*="gallery"] {
+  .swiper-btn-wrapper {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+
+    .swiper-prev, .swiper-next {
+      position: relative;
+      cursor: pointer;
+      pointer-events: all;
+
+      svg {
+        &:first-child {
+          @include to(1600px) {
+            height: 80px;
+            width: auto;
+          }
+        }
+      }
+
+
+      &.swiper-button-disabled {
+        display: none;
+      }
+
+      .icon--arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 28px;
+        height: 28px;
+        fill: $bc;
+
+        @include to(1600px) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .swiper-prev {
+      margin-right: auto;
+
+      .icon--arrow {
+        transform: translateX(-50%) translateY(-50%) rotate(180deg);
+      }
+    }
+
+    .swiper-next {
+      margin-left: auto;
+    }
+  }
+
+  .gallery-beckdrop, .gallery-beckdrop2 {
+    height: 100vh;
+    width: 100%;
+    background: rgba(29, 29, 27, 0.90);
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    padding: var(--padding-40);
+    z-index: 0;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out, z-index .0s .3s;
+
+    @include to(1024px) {
+      height: 100%;
+      min-height: -webkit-fill-available;
+    }
+
+    @include to(680px) {
+      padding: 0;
+    }
+
+    .gallery__big-swiper-wrapper {
+      height: 100%;
+
+      .btn-close-gallery {
+        position: absolute;
+        right: var(--padding-40);
+        top: var(--padding-40);
+        height: var(--circle-btn);
+        width: var(--circle-btn);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 111;
+        background: $bc;
+        border-radius: 100%;
+        cursor: pointer;
+        overflow: hidden;
+
+        @include to(1024px) {
+          background: $wc;
+        }
+
+        @include from(1023px) {
+          &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background: $wc;
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+          }
+
+          &:hover{
+            &:before {
+              transform: translate3d(0,-100%,0);
+            }
+
+            svg {
+              stroke: $wc;
+              transition: .2s ease-in-out;
+            }
+          }
+        }
+
+        svg {
+          stroke: $bc;
+          width: 14px;
+          height: auto;
+          position: relative;
+        }
+      }
+
+      .big-swiper_gallery, .big-swiper_gallery2 {
+        height: 100%;
+      }
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 110;
+      transition: opacity .3s .3s ease-in-out, visibility .3s .3s ease-in-out, z-index .0s;
+    }
+
+    .swiper-wrapper {
+      height: 100%;
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+        .swiper-slide-img {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include to(680px) {
+            overflow-x: scroll;
+            position: relative;
+            justify-content: flex-start;
+          }
+        }
+
+        img {
+          width: auto;
+          height: auto;
+          max-width: calc(100% - var(--padding-40)*2 - var(--circle-btn)*2);
+
+          @include to(680px) {
+            height: 100%;
+            max-width: none;
+          }
+        }
+      }
+    }
+  }
+
+  .section-1, .section-2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: var(--top-bottom-offset-150);
+
+    .dark-text-48 {
+      text-align: center;
+      padding: 0 var(--field);
+      margin-bottom: var(--offset-60);
+    }
+
+    .swiper {
+      padding: 0 var(--field);
+      position: relative;
+
+      .swiper-slide {
+        height: 800px;
+        border-radius: 40px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+
+        .mobile {
+          display: none;
+
+          @include to(680px) {
+            display: flex;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 24px;
+            width: 24px;
+          }
+        }
+
+        @include to(1600px) {
+          height: 520px;
+        }
+
+        @include from(681px) {
+          width: auto!important;
+        }
+
+        @include to(680px) {
+          height: 450px;
+          border-radius: 12px;
+        }
+
+        img {
+          height: 100%;
+          width: auto;
+          object-fit: contain;
+
+          @include to(680px) {
+            object-fit: cover;
+            width: 100%;
+            object-position: left;
+          }
+        }
+      }
+    }
+  }
+
+  .section-3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: var(--page-bottom-margin);
+
+    @include to(680px) {
+      padding: 0;
+    }
+
+    .dark-text-48 {
+      text-align: center;
+      margin-bottom: var(--offset-60);
+
+      @include to(680px) {
+        padding: 0 var(--field);
+      }
+    }
+
+    &__inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: relative;
+
+      @include to(680px) {
+        flex-direction: column;
+      }
+
+      &__filter {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 233px;
+        //position: sticky;
+        //top: calc(var(--header-h) + var(--offset-20));
+
+        @include to(1023px) {
+          width: 173px;
+        }
+
+        @include to(680px) {
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          overflow-x: scroll;
+          padding: 0 var(--field);
+        }
+
+        button {
+          width: 100%;
+          padding: var(--padding-40) var(--padding-20);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-top: 4px solid $wc;
+          border-left: 4px solid $wc;
+          border-right: none;
+          border-bottom: none;
+          background: $bg;
+
+          @include to(680px) {
+            min-width: 133px;
+            border-bottom: 4px solid $wc;
+          }
+
+          &:first-child {
+            border-radius: 40px 0 0 0;
+
+            @include to(680px) {
+              border-radius: 12px 0 0 0;
+            }
+          }
+
+          &:last-child {
+            border-radius: 0 0 0 40px;
+            border-bottom: 4px solid $wc;
+
+            @include to(680px) {
+              border-radius: 0 12px 0 0;
+              border-right: 4px solid $wc;
+            }
+          }
+
+          &.active {
+            background: $wc;
+          }
+        }
+      }
+
+      &__list {
+        background: $wc;
+        padding: var(--offset-60);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--offset-60);
+        width: calc(100% - 233px);
+        min-height: 50vh;
+        border-radius: 0px 40px 40px 40px;
+
+        @include to(1024px) {
+          grid-template-columns: 1fr;
+          width: calc(100% - 173px);
+          min-height: 35vh;
+        }
+
+        @include to(680px) {
+          width: calc(100% - var(--field)*2);
+          margin: 0 auto;
+          min-height: auto;
+          border-radius: 0px 0px 12px 12px;
+        }
+
+        &-card {
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          overflow: hidden;
+          height: fit-content;
+
+          &.active {
+            display: flex;
+          }
+
+          video {
+            margin-top: var(--offset-16);
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

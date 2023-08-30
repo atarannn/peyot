@@ -1,0 +1,634 @@
+.form-contacts__wrapper {
+  position: static;
+  background: transparent;
+  padding: var(--padding-40) var(--offset-60);
+
+  form {
+    height: 100%;
+  }
+}
+
+.form-wrapper {
+  background: rgba(29, 29, 27, 0.90);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+  visibility: hidden;
+  opacity: 0;
+  padding: var(--padding-40);
+  pointer-events: none;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include to(1024px) {
+    height: 100%;
+    min-height: -webkit-fill-available;
+  }
+
+  .form-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    position: relative;
+    background: $bg;
+
+    @include to(1024px) {
+      border-radius: 30px;
+    }
+
+    @include to(680px) {
+      border-radius: 12px;
+    }
+
+    .form-close {
+      height: var(--circle-btn);
+      width: var(--circle-btn);
+      background: $wc;
+      position: absolute;
+      right: calc((var(--circle-btn) / 2.5) * (-1));
+      top: calc((var(--circle-btn) / 2.5) * (-1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      cursor: pointer;
+      background: $bc;
+      border: none;
+      overflow: hidden;
+      z-index: 111;
+      //pointer-events: all;
+
+      @include to(1600px) {
+        right: calc((var(--circle-btn) / 3) * (-1));
+        top: calc((var(--circle-btn) / 3) * (-1));
+      }
+
+      @include to(1024px) {
+        background: $wc;
+        right: 0;
+        top: 0;
+      }
+
+      @include to(680px) {
+        right: 10px;
+        top: 10px;
+      }
+
+      @include from(1023px) {
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          content: '';
+          background: $wc;
+          transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+        }
+
+        &:hover{
+          &:before {
+            transform: translate3d(0,-100%,0);
+          }
+
+          svg {
+            fill: $wc;
+            transition: .2s ease-in-out;
+          }
+        }
+      }
+
+      svg {
+        fill: $bc;
+        width: 14px;
+        height: auto;
+        position: relative;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 20%;
+    background: transparent;
+    width: 100%;
+    padding: 0 var(--offset-60);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: visibility .5s ease-in-out, opacity .5s ease-in-out;
+
+    @include to(1024px) {
+      height: 50%;
+      padding: 40px 60px;
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+      align-content: center;
+      gap: 40px;
+    }
+
+    @include to(680px) {
+      padding: 20px;
+      gap: 20px;
+      height: 50%;
+    }
+
+    &.not-active {
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility .5s ease-in-out, opacity .5s ease-in-out;
+    }
+
+    .dark-text-36 {
+      width: auto;
+      white-space: nowrap;
+      margin-right: var(--offset-40);
+      color: $bc;
+
+      @include to(1600px) {
+        white-space: break-spaces;
+      }
+    }
+
+    .input-title {
+      color: $bc;
+    }
+
+    .form-field:not(#t) {
+      margin:  0 var(--offset-40) 0 0;
+    }
+  }
+
+  .form-thanks-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 20%;
+    background: transparent;
+    width: 100%;
+    padding: 0 var(--offset-60);
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility .5s ease-in-out, opacity .5s ease-in-out;
+    position: absolute;
+
+    @include to(1024px) {
+      height: 50%;
+      padding: var(--offset-60) 60px;
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+      align-content: center;
+      gap: 30px;
+    }
+
+    @include to(680px) {
+      height: 50%;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transition: visibility .5s ease-in-out, opacity .5s ease-in-out;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .dark-text-36 {
+        color: $bc;
+        text-align: left;
+        width: auto;
+        white-space: nowrap;
+        margin-right: auto;
+
+        @include to(1024px) {
+          &:first-child {
+            margin-bottom: 12px;
+          }
+        }
+      }
+    }
+
+    .decor {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: scale(2);
+
+        @include to(1024px) {
+          transform: scale(1);
+          object-position: bottom;
+        }
+      }
+    }
+  }
+
+  .submit-btn, .form-thanks-btn {
+    margin-top: 0;
+
+    .dark-text-20 {
+      white-space: nowrap;
+      text-align: left;
+    }
+  }
+
+  .img-wrapper {
+    margin-top: auto;
+    height: 80%;
+    width: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+
+    @include to(1024px) {
+      height: 50%;
+      border-radius: 30px;
+    }
+
+    @include to(680px) {
+      height: 50%;
+      border-radius: 12px;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.form-title {
+  text-align: left;
+}
+
+.form-thanks-close {
+  margin-top: var(--offset-30);
+  cursor: pointer;
+}
+
+.input-title {
+  text-align: left;
+  color: $grey;
+  font-family: $default-font;
+  font-size: var(--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.64px;
+  text-transform: inherit;
+  margin-bottom: 4px;
+}
+
+form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.submit-btn, .form-thanks-btn {
+  margin-top: 32px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+
+  .dark-text-20 {
+    margin-right: var(--offset-20);
+  }
+
+  svg {
+    fill: $bc;
+    transition: transform .5s ease-in-out;
+  }
+
+  @include to(1024px) {
+    margin-top: 25px;
+  }
+
+  @include from(1023px) {
+    &:hover {
+      svg {
+        transform: translateX(10px);
+        transition: transform .5s ease-in-out;
+      }
+    }
+  }
+}
+
+.form-field:not(#t) {
+  position: relative;
+  margin: 32px 0 0;
+  background: transparent;
+  transition: all 0.3s;
+  width: 100%;
+
+  @include to(1024px) {
+    margin: 25px 0 0;
+  }
+}
+[data-animation="focus"] .input-message {
+  position: absolute;
+  top: 50%;
+  left: var(--input-padding);
+  z-index: 3;
+  padding: 0 7px;
+  display: flex;
+  transform: translate(0%, -50%);
+  user-select: none;
+  pointer-events: none;
+  color: $light-grey;
+  font-family: $default-font;
+  font-size: var(--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.64px;
+  text-align: left;
+  transition: all 0.16s cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+
+.form-field__input {
+  width: 100%;
+  background: none;
+  color: $light-grey;
+  font-family: $default-font;
+  font-size: var(--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.64px;
+  text-align: left;
+  height: 60px;
+  background: $wc;
+  border: none;
+  padding-left: 32px;
+  cursor: pointer;
+
+  @include to(680px) {
+    height: 48px;
+  }
+
+  &::placeholder {
+    color: $light-grey;
+    font-family: $default-font;
+    font-size: var(--font-16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: -0.64px;
+    text-align: left;
+  }
+
+  &:focus + .form-field-message {
+    opacity: 1;
+  }
+}
+
+.mask-absolute {
+  color: $light-grey;
+  font-family: $default-font;
+  font-size: var(--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.64px;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: $wc;
+  padding-left: 32px;
+  cursor: pointer;
+
+  @include to(680px) {
+    height: 48px;
+  }
+}
+[data-animation="focus"] .form-field__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+[data-animation="none"] .input-message {
+  position: absolute;
+  bottom: -1px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: center;
+  color: $light-grey;
+  font-size: 12px;
+  text-transform: none;
+  transform: translate(0%, 100%);
+  font-family: $default-font;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.64px;
+}
+[data-field-input][data-status="field--inactive"]:not(#r) {
+  .input-message {
+    color: $grey;
+  }
+}
+[data-field-input][data-status="field--active"]:not(#r) {
+  .input-message {
+    color: $grey;
+  }
+}
+[data-field-input][data-status="field--error"]:not(#r) {
+  .input-message {
+    color: #EA4041;
+  }
+}
+[data-field-input][data-status="field--success"]:not(#r) {
+  .input-message {
+    color: #96C480;
+  }
+}
+.selected:not(#f) .input-message {
+  top: 0;
+  font-size: 10px;
+}
+.requaired-block {
+  &-ico {
+    width: 25px;
+    height: 25px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.requaired-block {
+  &__ico {
+    width: 25px;
+    height: 25px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__text {
+    font-size: vw(16);
+    line-height: 170%;
+    margin: 0px vw(18);
+    white-space: nowrap;
+
+    color: #BBBEC2;
+    @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1600px){
+      font-size: vw(16);
+      line-height: 1.4em;
+    }
+  }
+}
+.form-field-message {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  font-size: 12px;
+  line-height: 120%;
+  color: $grey;
+  transform: translateY(calc(-100% - 10px));
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1600px) {
+    font-size: vw(16);
+  }
+}
+
+.requaired-block-ico--position {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.form-thanks-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(29, 29, 27, 0.70);
+  //transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+  pointer-events: none;
+
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+    pointer-events: all;
+  }
+
+  .form-thanks {
+    padding: var(--padding-40) var(--offset-60);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 40%;
+    height: 40%;
+    background: $wc;
+    border: 2px solid $cream;
+    border-radius: 40px;
+
+    @include to(1024px) {
+      width: 70%;
+    }
+
+    .decor {
+      width: 64px;
+      height: 64px;
+    }
+
+    .dark-text-36 {
+      font-family: $default-font3;
+      font-weight: 500;
+      margin: var(--offset-20) 0;
+      text-align: center;
+    }
+
+    .dark-text-16 {
+      text-align: center;
+    }
+
+    .form-thanks-close {
+      margin-top: var(--offset-40);
+
+      .dark-text-20 {
+        margin-right: var(--offset-20);
+      }
+
+      svg {
+        transition: transform .5s ease-in-out;
+        fill: $bc;
+      }
+
+      @include from(1023px) {
+        &:hover {
+          svg {
+            transform: translateX(10px);
+            transition: transform .5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

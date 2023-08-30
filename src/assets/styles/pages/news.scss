@@ -1,0 +1,226 @@
+.news-card {
+  --img-h: 400px;
+
+  @include to(1600px) {
+    --img-h: 280px;
+  }
+
+  @include to(1024px) {
+    --img-h: 514px;
+  }
+
+  @include to(680px) {
+    --img-h: 236px;
+  }
+
+  border: 2px solid $cream;
+  border-radius: 40px;
+  background: $bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  overflow: hidden;
+  transition: border .2s ease-in-out;
+  transform: translateZ(0);
+
+  @include to(680px) {
+    border-radius: 12px;
+  }
+
+  &-top {
+    height: var(--img-h);
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    transform: translateZ(0);
+
+   .img {
+     height: 100%;
+     width: 100%;
+     overflow: hidden;
+     transform: translateZ(0);
+
+     img {
+       height: 100%;
+       width: 100%;
+       object-fit: cover;
+       transition: transform .5s ease-in-out;
+     }
+   }
+
+    &__action {
+      padding: 8px 24px 8px 16px;
+      border-radius: 100px;
+      background: $wc;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: absolute;
+      left: var(--padding-20);
+      top: 12px;
+      z-index: 1;
+      transform: translateZ(0);
+
+      @include to(1600px) {
+        padding: 4px 20px 4px 12px;
+      }
+
+      svg {
+        width: 24px;
+        height: 16px;
+        margin-right: 8px;
+      }
+    }
+
+    &__data {
+      padding: 8px 24px 8px 16px;
+      border-radius: 100px;
+      background: $wc;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: absolute;
+      right: var(--padding-20);
+      top: 12px;
+      z-index: 1;
+      transform: translateZ(0);
+
+      @include to(1600px) {
+        padding: 4px 20px 4px 12px;
+      }
+
+      svg {
+        width: 22px;
+        height: 22px;
+        margin-right: 8px;
+        fill: $wc;
+      }
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--padding-32) var(--padding-40) var(--padding-40);
+
+    .dark-text-20 {
+      text-decoration: underline;
+      width: 90%;
+      transition: color .5s ease-in-out;
+    }
+
+    svg {
+      fill: $bc;
+      transition: fill .5s ease-in-out;
+    }
+  }
+
+  @include from(1023px) {
+    &:hover {
+      border: 2px solid $dark-brown;
+      transition: border .5s ease-in-out;
+
+      .news-card-top {
+        .img {
+          img {
+            transform: scale(1.1);
+            transition: transform .5s ease-in-out;
+          }
+        }
+      }
+      .news-card-bottom {
+        .dark-text-20 {
+          color: $dark-brown;
+          transition: color .5s ease-in-out;
+        }
+
+        svg {
+          fill: $dark-brown;
+          transition: fill .5s ease-in-out;
+        }
+      }
+    }
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--offset-20);
+
+  @include to(1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include to(680px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.news-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--offset-60);
+
+  @include to(680px) {
+    width: 100%;
+  }
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    background: $cream;
+    border: none;
+    transition: background .5s ease-in-out, color .5s ease-in-out;
+
+    @include to(680px) {
+      width: 100%;
+    }
+
+    &:first-child {
+      border-radius: 100px 0 0 100px;
+      margin-right: 2px;
+    }
+
+    &:last-child {
+      border-radius: 0 100px 100px 0;
+      margin-left: 2px;
+    }
+
+    @include from(1023px) {
+      &:hover {
+        background: $bc;
+        color: $wc;
+        transition: background .5s ease-in-out, color .5s ease-in-out;
+      }
+    }
+
+    &.active {
+      background: $bc;
+      color: $wc;
+    }
+  }
+}
+
+[id*="news"] {
+  .page__wrapper {
+    margin-bottom: var(--page-bottom-margin);
+  }
+
+  .news-card {
+    @include to(1024px) {
+      --img-h: 236px;
+    }
+  }
+}

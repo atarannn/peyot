@@ -1,0 +1,143 @@
+[id*="single-news"] {
+  .breadcrumbs-wrapper {
+    .dark-title {
+      font-family: $default-font3;
+      font-weight: 500;
+      font-size: var(--font-52);
+      letter-spacing: -2.08px;
+    }
+  }
+}
+
+.single-news__wrapper {
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+  margin-bottom: var(--top-bottom-offset-150);
+  width: 100%;
+  border-radius: 40px;
+  border: 2px solid $cream;
+  background: $bg;
+  padding: var(--offset-60);
+  gap: var(--offset-20);
+
+  @include to(1600px) {
+    grid-template-columns: 15% 1fr 15%;
+  }
+
+  @include to(1024px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  @include to(680px) {
+    border-radius: 12px;
+  }
+
+  .data {
+    justify-self: end;
+    align-self: start;
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    height: fit-content;
+    justify-self: start;
+    align-self: start;
+
+    @include to(1024px) {
+      display: none;
+    }
+
+    svg {
+      transform: rotate(180deg);
+      fill: $dark-brown;
+      transition: transform .5s ease-in-out;
+    }
+
+    .dark-text-20 {
+      margin-left: var(--offset-20);
+    }
+
+    @include from(1023px) {
+      &:hover {
+        svg {
+          transform: rotate(180deg) translateX(10px);
+          transition: transform .5s ease-in-out;
+        }
+      }
+    }
+  }
+
+  .single-news__info {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: var(--offset-40);
+
+    &__head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--offset-20);
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    &__text {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--offset-20);
+      width: 100%;
+
+      .list {
+        width: 100%;
+        li {
+          margin-left: 20px;
+          list-style: circle;
+        }
+      }
+    }
+
+    .btn-style {
+      .dark-text-20 {
+        margin-right: var(--offset-20);
+      }
+
+      svg {
+        fill: $bc;
+        transition: transform .5s ease-in-out;
+      }
+
+      @include from(1023px) {
+        &:hover {
+          svg {
+            transform: translateX(10px);
+            transition: transform .5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.last-news {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+
+  .dark-title {
+    text-align: left;
+    margin-bottom: var(--offset-40);
+  }
+}

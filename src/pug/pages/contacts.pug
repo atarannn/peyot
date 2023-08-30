@@ -1,0 +1,60 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'contacts'
+    var id_page = 'id-page-contacts'
+    var class_page = 'class-page-contacts'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Контакти',
+        link: pagesLink[0].contacts
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/inner-loader.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/form.js')
+  script(defer src='./assets/scripts/sideform.js')
+  script(defer src='./assets/scripts/text-animation.js')
+  script(defer src='./assets/scripts/contacts.js')
+block content
+  include ../components/breadcrumbs/breadcrumbs
+  .page__wrapper.section-fields
+    .contacts
+      .contacts__left.map-wrapper
+        #map.map
+      .contacts__right.form-contacts__wrapper
+        form(data-form-contacts autocomplete="off").form
+          .dark-text-36 зв'язатися з нами
+          .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+            .input-title Ваше ім'я*
+            input(type='text' name="name" placeholder="Ім'я").form-field__input
+            .input-message(data-input-message)
+          .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+            .input-title Ваш телефон*
+            input(type='text' name="phone" placeholder="Tell").form-field__input
+            .mask-absolute.js-mask-absolute + 380 __-___-__-__
+            .input-message(data-input-message)
+          button( type="submit" data-btn-submit).submit-btn.link.btn-style.link--hover-3
+            span(data-btn-submit-text).dark-text-20 Надіслати повідомлення
+            +svg('arrow').svg
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+  include ../includes/form-thanks.pug

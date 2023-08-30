@@ -1,0 +1,364 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'home'
+    var id_page = 'home-page'
+    var class_page = 'home'
+
+
+block meta
+  title= 'Главная'
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/home.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/loader.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/form.js')
+  script(defer src='./assets/scripts/sideform.js')
+  script(defer src='./assets/scripts/text-animation.js')
+  script(defer src='./assets/scripts/btn-down.js')
+
+
+block content
+  section.section-1
+    .section-1__bg-wrapper
+      img(src="./assets/images/logo-main.svg")
+    .section-1__info
+      .section-1__info-top
+        .section-1__info-top__title
+          .light-title Peyot —
+          .light-title життя на
+          .light-title першiй лінії
+        .section-1__info-top__news-wrapper
+          a(href="#").section-1__info-top__news
+            .section-1__info-top__news-top
+              span Promo
+              +svg('arrow').svg
+            .section-1__info-top__news-text.dark-text-16 Знижки на квартири у Серпні
+          a(href="#").section-1__info-top__news
+            .section-1__info-top__news-top
+              span Promo
+              +svg('arrow').svg
+            .section-1__info-top__news-text.dark-text-16 Розтермінування на 1 рік з першим внеском від 30%
+      .section-1__info-bottom
+        a(href="https://goo.gl/maps/gMQjgrQTJTgD5K2V6" target="_blank").section-1__info-bottom-location
+          <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M24 11.6C24 18.8 14 26 14 26C14 26 4 18.8 4 11.6C4 9.05392 5.05357 6.61212 6.92893 4.81178C8.8043 3.01143 11.3478 2 14 2C16.6522 2 19.1957 3.01143 21.0711 4.81178C22.9464 6.61212 24 9.05392 24 11.6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 15C16.2091 15 18 13.2091 18 11C18 8.79086 16.2091 7 14 7C11.7909 7 10 8.79086 10 11C10 13.2091 11.7909 15 14 15Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          .col
+            span.light-text-16 м. Дніпро,
+            span.light-text-16 вул. Набережна Перемоги, 152
+          .mob.light-text-16 м. Дніпро, вул. Набережна Перемоги, 152
+        .section-1__info-bottom-arrow-down
+          +svg('arrow').svg
+          span.light-text-20 Гортай
+        button#playVideoButton
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.57142 13.3541V1.64593C3.57142 1.0849 4.18853 0.74287 4.66428 1.04021L14.0309 6.89432C14.4785 7.17408 14.4785 7.82599 14.0309 8.10575L4.66428 13.9599C4.18853 14.2572 3.57142 13.9152 3.57142 13.3541Z" fill="#1D1D1B"/>
+          </svg>
+          span.dark-text-20 Відео
+    .section-1__video
+      <video loop autoplay muted >
+      <source src="./assets/images/home/section-1/video.mov" type="video/mp4">
+      </video>
+      .section-1__video-btn.circle-animation
+        <svg class="open" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+        <path d="M3 9.59788V1.40212C3 1.00941 3.43197 0.769984 3.765 0.978124L10.3216 5.076C10.6349 5.27183 10.6349 5.72817 10.3216 5.924L3.765 10.0219C3.43198 10.23 3 9.99059 3 9.59788Z" fill=""/>
+        </svg>
+        <svg class="close" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+        <path d="M15.5 15.5L1.5 1.5M1.5 15.5L15.5 1.5L1.5 15.5Z" stroke="" stroke-width="2"/>
+        </svg>
+  section.section-2#section-2
+    img(src="./assets/images/home/section-2/1.jpg")
+    .section-2__text-animation.dark-title Насолоджуватись усіма перевагами центру міста, не виходячи за межі комплексу, - це PEYOT.
+  section.section-3
+    .section-3__cards-wrapper
+      .section-3__cards-scroll
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 01.
+            .dark-text-48 Житло бізнес-класу
+            .dark-text-16 Затишні будинки комплексу вміщуватимуть одно-, двокімнатні квартири та елітні апартаменти.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/1.jpg")
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 02.
+            .dark-text-48 Паркінг та гостьова парковка
+            .dark-text-16 У вашому розпорядженні 245 паркомісць для мешканців у багаторівневому паркінгу та 120 паркомісць на гостьовій парковці.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/2.jpg")
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 03.
+            .dark-text-48 Комерційна нерухомість
+            .dark-text-16 Зона комерційної нерухомості відділена від житлових секцій. Вхід до таких приміщень буде розташовано з “червоної лінії”.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/3.jpg")
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 04.
+            .dark-text-48 Магазини та розваги
+            .dark-text-16 Купуйте продукти в супермаркеті, вечеряйте з сім'єю в  ресторані, розважайтесь - не виходячи за територію комплексу.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/4.jpg")
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 05.
+            .dark-text-48 Офісні приміщення
+            .dark-text-16 Станьте частиною бізнес-простору мікрорайону. Приміщення підійдуть як для роботи офісних працівників, так і для компаній, чиї послуги будуть мати попит серед жителів комплексу та району.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/5.jpg")
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 06.
+            .dark-text-48 Дитячий та спортивний майданчик
+            .dark-text-16 Оснащені зони для активного відпочинку на свіжому повітрі для дорослих і дітей.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/6.jpg")
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 07.
+            .dark-text-48 Зони відпочинку
+            .dark-text-16 Відпочивайте, гуляйте, насолоджуйтесь вільним часом с рідними та близькими в зонах відпочинку на території комплексу.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/7.jpg")
+        .section-3__card
+          .section-3__card-left
+            .section-3__card-left__top
+              +svg('icon')
+              .dark-text-24 08.
+            .dark-text-48 Велопарковка
+            .dark-text-16 Спеціально обладнане місце для зберігання велосипедів. Ваш велобайк завжди в надійному місці.
+          .section-3__card-right
+            img(src="./assets/images/home/section-3/8.jpg")
+
+
+  section.section-4
+    .section-4__head
+      .dark-title Види 360°
+    .section-4__panorama
+      <iframe class="panorama-frame day active" data-panorama allowfullscreen="" style="border-style:none;" src="./static/panorama/pannellum.htm#panorama=../../assets/images/home/section-4/panorama.png&amp;autoLoad=true&amp;preview=http://localhost/src/assets/images/home/section-4/panorama.png"></iframe>
+      <iframe class="panorama-frame night" data-panorama allowfullscreen="" style="border-style:none;" src="./static/panorama/pannellum.htm#panorama=../../assets/images/home/section-4/panorama.png&amp;autoLoad=true&amp;preview=http://localhost/src/assets/images/home/section-4/panorama.png"></iframe>
+      .panorama__left-btn
+        button#fullscreen-btn
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M7.25 8.75C7.25 7.64543 8.14543 6.75 9.25 6.75H12.25C12.8023 6.75 13.25 7.19772 13.25 7.75C13.25 8.30228 12.8023 8.75 12.25 8.75H9.25V11.75C9.25 12.3023 8.80228 12.75 8.25 12.75C7.69772 12.75 7.25 12.3023 7.25 11.75V8.75ZM19.25 7.75C19.25 7.19772 19.6977 6.75 20.25 6.75H23.25C24.3546 6.75 25.25 7.64543 25.25 8.75V11.75C25.25 12.3023 24.8023 12.75 24.25 12.75C23.6977 12.75 23.25 12.3023 23.25 11.75V8.75H20.25C19.6977 8.75 19.25 8.30228 19.25 7.75ZM8.25 18.75C8.80228 18.75 9.25 19.1977 9.25 19.75V22.75H12.25C12.8023 22.75 13.25 23.1977 13.25 23.75C13.25 24.3023 12.8023 24.75 12.25 24.75H9.25C8.14543 24.75 7.25 23.8546 7.25 22.75V19.75C7.25 19.1977 7.69772 18.75 8.25 18.75ZM24.25 18.75C24.8023 18.75 25.25 19.1977 25.25 19.75V22.75C25.25 23.8546 24.3546 24.75 23.25 24.75H20.25C19.6977 24.75 19.25 24.3023 19.25 23.75C19.25 23.1977 19.6977 22.75 20.25 22.75H23.25V19.75C23.25 19.1977 23.6977 18.75 24.25 18.75Z" fill="white"/>
+          </svg>
+        button#day-btn.active
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+          <circle cx="21" cy="21" r="5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M21 8V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M21 35L21 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M35 21L30 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8 21L12 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M30.0168 11.2039L26.8779 14.3428" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M11.6619 30.6172L14.8008 27.4783" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M30.4766 30.3357L27.3377 27.1968" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M11.2021 11.4854L14.3411 14.6243" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        button#night-btn
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+          <path d="M13.2756 21.5001C7.70663 21.5001 8.29284 30.0001 12.1032 30.0001C16.402 30.0001 25.7618 30.0001 28.8101 30.0001C32.4084 30.0001 33.3928 25.0339 31.0229 23M13.2756 21.5001C15.6204 21.5001 16.7928 23.2587 17.0859 24.1381M13.2756 21.5001C13.2756 17.1604 17.7222 14.5993 21 15.1724" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <mask id="path-2-inside-1_70_370" fill="white">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M30.5312 6.0011C30.4884 6.00037 30.4455 6 30.4026 6C26.3142 6 23 9.31424 23 13.4026C23 17.4909 26.3142 20.8051 30.4026 20.8051C33.5281 20.8051 36.2012 18.868 37.2869 16.1289C33.2579 16.0603 30.013 12.7728 30.013 8.72746C30.013 7.76469 30.1968 6.84484 30.5312 6.0011Z"/>
+          </mask>
+          <path d="M30.5312 6.0011L32.3905 6.73804L33.4556 4.05063L30.5653 4.00139L30.5312 6.0011ZM37.2869 16.1289L39.1462 16.8659L40.2113 14.1785L37.321 14.1292L37.2869 16.1289ZM30.4026 8C30.4342 8 30.4657 8.00027 30.4971 8.0008L30.5653 4.00139C30.5111 4.00046 30.4569 4 30.4026 4V8ZM25 13.4026C25 10.4188 27.4188 8 30.4026 8V4C25.2097 4 21 8.20967 21 13.4026H25ZM30.4026 18.8051C27.4188 18.8051 25 16.3863 25 13.4026H21C21 18.5954 25.2097 22.8051 30.4026 22.8051V18.8051ZM35.4276 15.392C34.6339 17.3946 32.6805 18.8051 30.4026 18.8051V22.8051C34.3757 22.8051 37.7686 20.3415 39.1462 16.8659L35.4276 15.392ZM37.321 14.1292C34.3812 14.0791 32.013 11.6797 32.013 8.72746H28.013C28.013 13.866 32.1346 18.0414 37.2528 18.1286L37.321 14.1292ZM32.013 8.72746C32.013 8.02114 32.1475 7.35108 32.3905 6.73804L28.6719 5.26415C28.246 6.3386 28.013 7.50824 28.013 8.72746H32.013Z" fill="white" mask="url(#path-2-inside-1_70_370)"/>
+          </svg>
+      .panorama__right-btn
+        button#zoom-in-btn
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16 9C15.4477 9 15 9.44772 15 10V15.0017H10C9.44771 15.0017 9 15.4495 9 16.0017C9 16.554 9.44771 17.0017 10 17.0017H15V22C15 22.5523 15.4477 23 16 23C16.5523 23 17 22.5523 17 22V17.0017H22C22.5523 17.0017 23 16.554 23 16.0017C23 15.4495 22.5523 15.0017 22 15.0017H17V10C17 9.44772 16.5523 9 16 9Z" fill="white"/>
+          </svg>
+        button#zoom-out-btn
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M23 16C23 16.5523 22.5523 17 22 17L10 17C9.44771 17 9 16.5523 9 16C9 15.4477 9.44771 15 10 15L22 15C22.5523 15 23 15.4477 23 16Z" fill="white"/>
+          </svg>
+
+
+  section.section-5
+    .section-5__head
+      .top Квартири
+      .center
+      .bottom Квартири
+    .section-5__inner
+      .section-5__inner-top
+        img(src="./assets/images/home/section-5/1.png")
+        .section-5__inner-top__info
+          .light-text-48 Втілюйте найсміливіші ідеї інтер'єрів.
+          +svg('icon-2')
+          .light-text-16 Втілюйте найсміливіші ідеї інтер'єрів. Експерементуйте з фактурами, дизайном, кольором, матеріалом. Єдине, що залишиться незмінним - висока якість матеріалів будівництва.
+      .section-5__inner-bottom__wrapper
+        .section-5__inner-bottom
+          .section-5__inner-bottom-hor-scroll
+            .section-5__inner-bottom__card__wrapper
+              .section-5__inner-bottom__card
+                img(src="./assets/images/home/section-5/2.png")
+                .section-5__inner-bottom__card-bottom
+                  .row
+                    .light-text-48 01.
+                    .light-text-16 Обирайте квартиру з вільним плануванням від 34 м² та не обмежуйте себе встановленою площею. За бажанням, ви можете об'єднати декілька суміжних приміщень та отримати максимальний простір.
+                  .row
+                    a(href="#").light-text-20.link--hover-6 Обрати квартиру
+                    +svg('arrow').svg
+            .section-5__inner-bottom__card__wrapper
+              .section-5__inner-bottom__card
+                img(src="./assets/images/home/section-5/3.png")
+                .section-5__inner-bottom__card-bottom
+                  .row
+                    .light-text-48 02.
+                    .light-text-16 З кожної квартири відкриваються захоплюючі види на місто завдяки панорамному склінню. Частина планувань включає в себе просторий балкон-терасу.
+                  .row
+                    a(href="#").light-text-20.link--hover-6 Обрати квартиру
+                    +svg('arrow').svg
+            .section-5__inner-bottom__card__wrapper
+              .section-5__inner-bottom__card
+                img(src="./assets/images/home/section-5/4.png")
+                .section-5__inner-bottom__card-bottom
+                  .row
+                    .light-text-48 03.
+                    .light-text-16 Ваша квартира буде укомплектована якісними вікнами з 5-камерним профілем, який захистить від шуму та пилу міста. А цегляні стіни та утеплення мінеральною ватою забезпечать мінімальні тепловтрати взимку і збережуть прохолоду влітку.
+                  .row
+                    a(href="#").light-text-20.link--hover-6 Обрати квартиру
+                    +svg('arrow').svg
+
+            .section-5__inner-bottom__card__wrapper
+              .section-5__inner-bottom__card
+                img(src="./assets/images/home/section-5/5.png")
+                .section-5__inner-bottom__card-bottom
+                  .row
+                    .light-text-48 04.
+                    .light-text-16 Кожна будівля - автономна та має свою котельню, станцію грубого очищення води, систему димовидалення, пожежної сигналізації та водяного пожежогасіння.
+                  .row
+                    a(href="#").light-text-20.link--hover-6 Обрати квартиру
+                    +svg('arrow').svg
+
+            .section-5__inner-bottom__card__wrapper
+              .section-5__inner-bottom__card
+                img(src="./assets/images/home/section-5/6.png")
+                .section-5__inner-bottom__card-bottom
+                  .row
+                    .light-text-48 05.
+                    .light-text-16 Комплексом передбачено по 2 ліфти в кожній секції - пасажирський та вантажо-пасажирський від відомого американського виробника Otis Elevator Company.
+                  .row
+                    a(href="#").light-text-20.link--hover-6 Обрати квартиру
+                    +svg('arrow').svg
+
+  section.section-6
+    img(src="./assets/images/home/section-6/1.jpg")
+    .section-6__text-animation.dark-title Лобі в PEYOT - це мультифункціональний тип загального простору, в якому розташовані:
+  section.section-7
+    .section-7__wrapper
+      .section-7-hor-scroll
+        .section-7__card
+          .section-7__card__text
+            .light-title ЛАУНЖ-ЗОНА ДЛЯ ОЧІКУВАННЯ
+          img(src="./assets/images/home/section-7/1.jpg")
+        .section-7__card
+          .section-7__card__text
+            .light-title ПРОСТІР ДЛЯ ДИТЯЧИХ ВІЗОЧКІВ ТА ВЕЛОСИПЕДІВ
+          img(src="./assets/images/home/section-7/2.jpg")
+        .section-7__card
+          .section-7__card__text
+            .light-title ПОШТОВІ СКРИНЬКИ
+          img(src="./assets/images/home/section-7/3.jpg")
+        .section-7__card
+          .section-7__card__text
+            .light-title ЗОНА ЛІФТІВ
+            .light-text-48 (до паркінгу та житлових поверхів)
+          img(src="./assets/images/home/section-7/4.jpg")
+        .section-7__card
+          .section-7__card__text
+            .light-title МІСЦЕ БУККРОСИНГУ
+          img(src="./assets/images/home/section-7/5.jpg")
+        .section-7__card
+          .section-7__card__text
+            .light-title ГОСТЬОВА ВБИРАЛЬНЯ
+          img(src="./assets/images/home/section-7/6.jpg")
+
+  section.section-8
+    .section-8__head
+      .dark-title Новини
+      a(href="#").section-8__head-btn
+        .dark-text-20.link--hover Більше новин
+        +svg('arrow').svg
+    .section-8__news-list
+      a(href="#").news-card
+        .news-card-top
+          .news-card-top__action
+            +svg('footer-icon')
+            .dark-text-16 Акція
+          .news-card-top__data
+            +svg('news-calendar')
+            .dark-text-16 01 / 12 / 2023
+          .img
+            img(src="./assets/images/news/1.png")
+        .news-card-bottom
+          .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+          +svg('arrow').svg
+      a(href="#").news-card
+        .news-card-top
+          .news-card-top__action
+            +svg('footer-icon')
+            .dark-text-16 Акція
+          .news-card-top__data
+            +svg('news-calendar')
+            .dark-text-16 01 / 12 / 2023
+          .img
+            img(src="./assets/images/news/1.png")
+        .news-card-bottom
+          .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+          +svg('arrow').svg
+      a(href="#").news-card
+        .news-card-top
+          .news-card-top__action
+            +svg('footer-icon')
+            .dark-text-16 Акція
+          .news-card-top__data
+            +svg('news-calendar')
+            .dark-text-16 01 / 12 / 2023
+          .img
+            img(src="./assets/images/news/1.png")
+        .news-card-bottom
+          .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+          +svg('arrow').svg
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+  include ../includes/loader.html
+  .mobile-video__wrapper
+    .btn-close-video
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.58969 8.00781L0.224976 14.3725L1.63919 15.7867L8.00391 9.42203L14.3686 15.7867L15.7828 14.3725L9.41812 8.00781L15.7813 1.64461L14.3671 0.230394L8.00391 6.5936L1.6407 0.230393L0.226488 1.64461L6.58969 8.00781Z"/>
+      </svg>
+    <video id="myVideo" controls>
+      <source src="./assets/images/home/section-1/video.mov" type="video/mp4">
+    </video>
+

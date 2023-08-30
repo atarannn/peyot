@@ -1,0 +1,76 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'construction'
+    var id_page = 'id-page-construction'
+    var class_page = 'class-page-construction'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Хід будівництва',
+        link: pagesLink[0].construction
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/inner-loader.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/form.js')
+  script(defer src='./assets/scripts/sideform.js')
+  script(defer src='./assets/scripts/text-animation.js')
+  script(defer src='./assets/scripts/construction.js')
+block content
+  include ../components/breadcrumbs/breadcrumbs
+  .page__wrapper.section-fields
+    ul.construction-progress__list
+      li.construction-progress-card(data-open-construction-progress)
+        .left
+          .head
+            .dark-title 05
+            .col
+              .dark-text-24 Травня
+              .dark-text-16 2023
+          .text(data-lenis-prevent)
+            .dark-text-16 Час новин з будівельного майданчика ЖК Central Park VinnytsiaНад чим працюємо зараз?
+            .dark-text-16 Перекриття 14-го та підготовка колон 15-го поверху першого будинку (секція 1.3)
+            .dark-text-16 Перекриття 11-го та підготовка колон 12-го поверху другого будинку (секція 1.2) Зведення зовнішніх стін з керамоблоку початкових поверхів в першому та підготовчі роботи у другому будинку.
+            .dark-text-16 Початок зведення внутрішніх квартирних перестінків в першому будинку.Гортайте галерею!
+          .row
+            .dark-text-16 14 фото
+            .dark-text-16 1 відео
+        .right
+          img(data-img src="./assets/images/construction/1.jpg").img
+      li.construction-progress-card
+        .left
+          .head
+            .dark-title 05
+            .col
+              .dark-text-24 Травня
+              .dark-text-16 2023
+          .text(data-lenis-prevent)
+            .dark-text-16 Час новин з будівельного майданчика ЖК Central Park VinnytsiaНад чим працюємо зараз?
+            .dark-text-16 Перекриття 14-го та підготовка колон 15-го поверху першого будинку (секція 1.3)
+            .dark-text-16 Перекриття 11-го та підготовка колон 12-го поверху другого будинку (секція 1.2) Зведення зовнішніх стін з керамоблоку початкових поверхів в першому та підготовчі роботи у другому будинку.
+            .dark-text-16 Початок зведення внутрішніх квартирних перестінків в першому будинку.Гортайте галерею!
+          .row
+            .dark-text-16 14 фото
+            .dark-text-16 1 відео
+        .right
+          img(data-img src="./assets/images/construction/1.jpg").img
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+  include ../includes/construction-popup

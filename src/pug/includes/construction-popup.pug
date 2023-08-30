@@ -1,0 +1,37 @@
+.construction_progress-popup-wrapper(data-construction-progress)
+  .construction_progress-popup
+    .left
+      .head
+        .dark-title 05
+        .col
+          .dark-text-24 Травня
+          .dark-text-16 2023
+      .text__wrapper
+        .text(data-lenis-prevent)
+          .dark-text-16 Час новин з будівельного майданчика ЖК Central Park VinnytsiaНад чим працюємо зараз?
+          .dark-text-16 Перекриття 14-го та підготовка колон 15-го поверху першого будинку (секція 1.3)
+          .dark-text-16 Перекриття 11-го та підготовка колон 12-го поверху другого будинку (секція 1.2) Зведення зовнішніх стін з керамоблоку початкових поверхів в першому та підготовчі роботи у другому будинку.
+          .dark-text-16 Початок зведення внутрішніх квартирних перестінків в першому будинку.Гортайте галерею!
+    .swiper.construction-swiper
+      .swiper-btn-wrapper
+        .swiper-prev(data-swiper-prev)
+          +svg('arrow')
+        .swiper-next(data-swiper-next)
+          +svg('arrow')
+      .swiper-wrapper
+        .swiper-slide
+          .swiper-slide_num(data-current-num)
+          <video poster="./assets/images/construction/video.jpg" controls="true">
+            <source src="./assets/images/construction/video.MP4" type="video/mp4">
+          </video>
+        .swiper-slide
+          .swiper-slide_num(data-current-num)
+          img(src="./assets/images/construction/1.jpg", alt="")
+        .swiper-slide
+          .swiper-slide_num(data-current-num)
+          img(src="./assets/images/construction/1.jpg", alt="")
+  .btn-close(type="button" data-close-construction-progress)
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.58969 8.00781L0.224976 14.3725L1.63919 15.7867L8.00391 9.42203L14.3686 15.7867L15.7828 14.3725L9.41812 8.00781L15.7813 1.64461L14.3671 0.230394L8.00391 6.5936L1.6407 0.230393L0.226488 1.64461L6.58969 8.00781Z"/>
+    </svg>
+

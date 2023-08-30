@@ -1,0 +1,169 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'gallery'
+    var id_page = 'id-page-gallery'
+    var class_page = 'class-page-gallery'
+    var breadcrumbsSubitem = [
+      {
+        label: 'ГАЛЕРЕЯ',
+        link: pagesLink[0].gallery
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/inner-loader.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/form.js')
+  script(defer src='./assets/scripts/sideform.js')
+  script(defer src='./assets/scripts/text-animation.js')
+  script(defer src='./assets/scripts/gallery.bundle.js')
+
+block content
+  include ../components/breadcrumbs/breadcrumbs
+  .page__wrapper
+    .section-1
+      .dark-text-48 Комплекс
+      .swiper.swiper-1
+        .swiper-btn-wrapper
+          .swiper-prev(data-swiper-prev-1)
+            <svg width="100" height="132" viewBox="0 0 100 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_559_2125)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M84 16C92.8366 16 100 23.1635 100 32L100 100C100 108.837 92.8366 116 84 116L16.5 116C7.66345 116 0.50001 123.163 0.500009 132L0.500008 157.5C0.500008 166.337 -6.66344 173.5 -15.5 173.5L-34.5 173.5C-43.3365 173.5 -50.5 166.337 -50.5 157.5L-50.5 -26.5C-50.5 -35.3366 -43.3365 -42.5 -34.5 -42.5L-15.5 -42.5C-6.66343 -42.5 0.500017 -35.3366 0.500016 -26.5L0.500015 -4.34928e-06C0.500015 8.83654 7.66346 16 16.5 16L84 16Z" fill="white"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_559_2125">
+                  <rect width="100" height="132" fill="white" transform="matrix(-1 0 0 1 100 0)"/>
+                </clipPath>
+              </defs>
+            </svg>
+            +svg('arrow')
+          .swiper-next(data-swiper-next-1)
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="132" viewBox="0 0 100 132" fill="none">
+              <g clip-path="url(#clip0_559_2125)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16 16C7.16344 16 -6.57142e-06 23.1635 -6.18516e-06 32L-3.21279e-06 100C-2.82653e-06 108.837 7.16344 116 16 116L83.5 116C92.3365 116 99.5 123.163 99.5 132L99.5 157.5C99.5 166.337 106.663 173.5 115.5 173.5L134.5 173.5C143.337 173.5 150.5 166.337 150.5 157.5L150.5 -26.5C150.5 -35.3366 143.337 -42.5 134.5 -42.5L115.5 -42.5C106.663 -42.5 99.5 -35.3366 99.5 -26.5L99.5 -4.34928e-06C99.5 8.83654 92.3365 16 83.5 16L16 16Z" fill="white"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_559_2125">
+                  <rect width="100" height="132" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+            +svg('arrow')
+        .swiper-wrapper
+          .swiper-slide.js-open-big-gallery
+            img(src="./assets/images/gallery/1-1.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery
+            img(src="./assets/images/gallery/1-2.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery
+            img(src="./assets/images/gallery/1-3.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery
+            img(src="./assets/images/gallery/1-4.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery
+            img(src="./assets/images/gallery/1-5.jpg", alt="")
+            +svg('zoom').mobile
+    .section-2
+      .dark-text-48 Лобі
+      .swiper.swiper-2
+        .swiper-btn-wrapper
+          .swiper-prev(data-swiper-prev-2)
+            <svg width="100" height="132" viewBox="0 0 100 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_559_2125)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M84 16C92.8366 16 100 23.1635 100 32L100 100C100 108.837 92.8366 116 84 116L16.5 116C7.66345 116 0.50001 123.163 0.500009 132L0.500008 157.5C0.500008 166.337 -6.66344 173.5 -15.5 173.5L-34.5 173.5C-43.3365 173.5 -50.5 166.337 -50.5 157.5L-50.5 -26.5C-50.5 -35.3366 -43.3365 -42.5 -34.5 -42.5L-15.5 -42.5C-6.66343 -42.5 0.500017 -35.3366 0.500016 -26.5L0.500015 -4.34928e-06C0.500015 8.83654 7.66346 16 16.5 16L84 16Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_559_2125">
+            <rect width="100" height="132" fill="white" transform="matrix(-1 0 0 1 100 0)"/>
+            </clipPath>
+            </defs>
+            </svg>
+            +svg('arrow')
+          .swiper-next(data-swiper-next-2)
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="132" viewBox="0 0 100 132" fill="none">
+            <g clip-path="url(#clip0_559_2125)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 16C7.16344 16 -6.57142e-06 23.1635 -6.18516e-06 32L-3.21279e-06 100C-2.82653e-06 108.837 7.16344 116 16 116L83.5 116C92.3365 116 99.5 123.163 99.5 132L99.5 157.5C99.5 166.337 106.663 173.5 115.5 173.5L134.5 173.5C143.337 173.5 150.5 166.337 150.5 157.5L150.5 -26.5C150.5 -35.3366 143.337 -42.5 134.5 -42.5L115.5 -42.5C106.663 -42.5 99.5 -35.3366 99.5 -26.5L99.5 -4.34928e-06C99.5 8.83654 92.3365 16 83.5 16L16 16Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_559_2125">
+            <rect width="100" height="132" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+            +svg('arrow')
+        .swiper-wrapper
+          .swiper-slide.js-open-big-gallery2
+            img(src="./assets/images/gallery/2-1.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery2
+            img(src="./assets/images/gallery/2-2.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery2
+            img(src="./assets/images/gallery/2-3.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery2
+            img(src="./assets/images/gallery/2-4.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery2
+            img(src="./assets/images/gallery/2-5.jpg", alt="")
+            +svg('zoom').mobile
+          .swiper-slide.js-open-big-gallery2
+            img(src="./assets/images/gallery/2-6.jpg", alt="")
+            +svg('zoom').mobile
+    .section-3.section-fields
+      .dark-text-48 Види з квартир
+      .section-3__inner
+        .section-3__inner__filter
+          button(data-view="s-1").dark-text-20 Секція 1
+          button(data-view="s-2").dark-text-20 Секція 2
+          button(data-view="s-3").dark-text-20 Секція 3
+          button(data-view="s-4").dark-text-20 Секція 4
+          button(data-view="ap").dark-text-20 Апартаменти
+        .section-3__inner__list
+          .section-3__inner__list-card.s-1
+            .dark-text-24 Квартири 1А, 1Б
+            <video controls poster="./assets/images/construction/bg.jpg">
+              <source src="./assets/images/construction/video.mov" type="video/mp4">
+            </video>
+          .section-3__inner__list-card.s-2
+            .dark-text-24 Квартири 1А, 1Б
+            <video controls poster="./assets/images/construction/bg.jpg">
+            <source src="./assets/images/construction/video.mov" type="video/mp4">
+            </video>
+          .section-3__inner__list-card.s-3
+            .dark-text-24 Квартири 1А, 1Б
+            <video controls poster="./assets/images/construction/bg.jpg">
+            <source src="./assets/images/construction/video.mov" type="video/mp4">
+            </video>
+          .section-3__inner__list-card.s-4
+            .dark-text-24 Квартири 1А, 1Б
+            <video controls poster="./assets/images/construction/bg.jpg">
+            <source src="./assets/images/construction/video.mov" type="video/mp4">
+            </video>
+          .section-3__inner__list-card.ap
+            .dark-text-24 Квартири 1А, 1Б
+            <video controls poster="./assets/images/construction/bg.jpg">
+            <source src="./assets/images/construction/video.mov" type="video/mp4">
+            </video>
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+  include ../includes/gallery-popup.pug
+  include ../includes/gallery-popup-2.pug

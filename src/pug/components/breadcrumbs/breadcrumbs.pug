@@ -1,0 +1,11 @@
+.breadcrumbs-wrapper
+  .breadcrumbs
+    .top-decor
+    .bottom-decor
+    if breadcrumbsSubitem
+      each v in breadcrumbsSubitem
+        .breadcrumbs-title
+          .breadcrumbs-title-for-animation
+            .dark-title= v.label
+            +svg('big-svg')
+

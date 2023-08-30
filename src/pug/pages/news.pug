@@ -1,0 +1,83 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'news'
+    var id_page = 'id-page-news'
+    var class_page = 'class-page-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Новини',
+        link: pagesLink[0].news
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/inner-loader.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/form.js')
+  script(defer src='./assets/scripts/sideform.js')
+  script(defer src='./assets/scripts/text-animation.js')
+  script(defer src='./assets/scripts/news.js')
+block content
+  include ../components/breadcrumbs/breadcrumbs
+  .page__wrapper.section-fields
+    .news-filter
+      button(data-view="all").news-filter-btn.dark-text-20.active Всі
+      button(data-view="news").news-filter-btn.dark-text-20 Новини
+      button(data-view="action").news-filter-btn.dark-text-20 Акції
+    .news-list
+      a(href="single-news.html").news-card.news
+        .news-card-top
+          .news-card-top__action
+            +svg('footer-icon')
+            .dark-text-16 Новина
+          .news-card-top__data
+            +svg('news-calendar')
+            .dark-text-16 01 / 12 / 2023
+          .img
+            img(src="./assets/images/news/1.png")
+        .news-card-bottom
+          .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+          +svg('arrow').svg
+      a(href="#").news-card.action
+        .news-card-top
+          .news-card-top__action
+            +svg('footer-icon')
+            .dark-text-16 Акція
+          .news-card-top__data
+            +svg('news-calendar')
+            .dark-text-16 01 / 12 / 2023
+          .img
+            img(src="./assets/images/news/1.png")
+        .news-card-bottom
+          .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+          +svg('arrow').svg
+      a(href="#").news-card.action
+        .news-card-top
+          .news-card-top__action
+            +svg('footer-icon')
+            .dark-text-16 Акція
+          .news-card-top__data
+            +svg('news-calendar')
+            .dark-text-16 01 / 12 / 2023
+          .img
+            img(src="./assets/images/news/1.png")
+        .news-card-bottom
+          .dark-text-20 Компанію забудовника відзначено професійною нагородою премії «Український олімп»
+          +svg('arrow').svg
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
