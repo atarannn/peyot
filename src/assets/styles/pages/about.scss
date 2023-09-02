@@ -160,6 +160,7 @@
           padding: var(--padding-20) 0;
           //border-top: 2px solid $bc;
           position: relative;
+          z-index: -1;
 
 
           @include to(1600px) {
@@ -845,6 +846,10 @@
           align-items: center;
           justify-content: center;
           position: relative;
+
+          @include to(680px) {
+            display: none;
+          }
         }
 
         .section-7__card {
@@ -882,6 +887,8 @@
           @include to(680px) {
             padding: 16px;
             border-radius: 12px;
+            justify-content: flex-end;
+            overflow: hidden;
           }
 
           &-left {
@@ -901,6 +908,7 @@
 
             @include to(680px) {
               margin-top: 20px;
+              height: auto;
             }
 
             &__top {
@@ -962,6 +970,54 @@
 
             @include to(1024px) {
               width: 100%;
+            }
+
+            @include to(680px) {
+              height: 50%;
+            }
+          }
+        }
+
+        .section-7__mobile {
+          overflow: hidden;
+          width: 100%;
+          display: none;
+          height: 550px;
+          position: relative;
+
+          @include to(680px) {
+            display: flex;
+          }
+
+          .swiper-mobile-btn {
+            position: absolute;
+            right: 16px;
+            top: calc(50% + 15px);
+            //transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+
+            .mobile-swiper-prev {
+              svg {
+                transform: rotate(-90deg);
+                animation: arrowAnimationTop 3s ease-in-out infinite;
+                fill: $wc;
+              }
+              margin-right: 8px;
+            }
+
+            .mobile-swiper-next {
+              svg {
+                animation: arrowAnimationBottom 3s ease-in-out infinite;
+                transform: rotate(90deg);
+                fill: $wc;
+              }
+            }
+
+            .swiper-button-disabled {
+              opacity: .5;
             }
           }
         }

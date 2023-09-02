@@ -80,6 +80,36 @@
   }
 }
 
+@keyframes arrowAnimationTop {
+  0% {
+    transform: rotate(-90deg) translateX(0px);
+  }
+  35% {
+    transform: rotate(-90deg) translateX(5px);
+  }
+  75% {
+    transform: rotate(-90deg) translateX(-5px);
+  }
+  100% {
+    transform: rotate(-90deg) translateX(0px);
+  }
+}
+
+@keyframes arrowAnimationBottom {
+  0% {
+    transform: rotate(90deg) translateX(0px);
+  }
+  35% {
+    transform: rotate(90deg) translateX(5px);
+  }
+  75% {
+    transform: rotate(90deg) translateX(-5px);
+  }
+  100% {
+    transform: rotate(90deg) translateX(0px);
+  }
+}
+
 .link--hover {
   position: relative;
 

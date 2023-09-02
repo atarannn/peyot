@@ -152,75 +152,81 @@ aboutText2('.section-5__right__card .dark-text-36');
 
 // анімація тексту для кароток
 function aboutSplitToLinesAndFadeUp(selector, $scroller) {
-  document.querySelectorAll(selector).forEach(text => {
-    let mathM = text.innerHTML.match(/<\s*(\w+\b)(?:(?!<\s*\/\s*\1\b)[\s\S])*<\s*\/\s*\1\s*>|\S+/g);
-    if (mathM === null) return;
-    mathM = mathM.map(el => `<span style="display:inline-flex; overflow: hidden"><span>${el}</span></span>`);
-    text.innerHTML = mathM.join(' ');
+  if (document.documentElement.clientWidth > 680) {
+    document.querySelectorAll(selector).forEach(text => {
+      let mathM = text.innerHTML.match(/<\s*(\w+\b)(?:(?!<\s*\/\s*\1\b)[\s\S])*<\s*\/\s*\1\s*>|\S+/g);
+      if (mathM === null) return;
+      mathM = mathM.map(el => `<span style="display:inline-flex; overflow: hidden"><span>${el}</span></span>`);
+      text.innerHTML = mathM.join(' ');
 
-    let tl = gsap
-      .timeline({
-        paused: true,
-        scrollTrigger: {
-          scroller: $scroller || document.body,
-          trigger: text,
-          once: true,
-        },
-      })
-      .fromTo(
-        text.querySelectorAll('span>span'),
-        { yPercent: 100 },
-        { yPercent: 0, delay: 0.5, stagger: 0.05, duration: 1, ease: "power4.out" }
-      );
-  });
+      let tl = gsap
+        .timeline({
+          paused: true,
+          scrollTrigger: {
+            scroller: $scroller || document.body,
+            trigger: text,
+            once: true,
+          },
+        })
+        .fromTo(
+          text.querySelectorAll('span>span'),
+          { yPercent: 100 },
+          { yPercent: 0, delay: 0.5, stagger: 0.05, duration: 1, ease: "power4.out" }
+        );
+    });
+  }
 }
 aboutSplitToLinesAndFadeUp('.section-7__card-left__top .light-text-24, .section-7__card-left .light-text-36, .section-7__card-left .light-text-16');
 
 // без затримки, анімація для svg
 function aboutTransformAnimation2(selector, $scroller) {
-  document.querySelectorAll(selector).forEach(img => {
-    const wrapper = document.createElement('div');
-    wrapper.style.overflow = 'hidden';
-    img.parentNode.insertBefore(wrapper, img);
-    wrapper.appendChild(img);
+  if (document.documentElement.clientWidth > 680) {
+    document.querySelectorAll(selector).forEach(img => {
+      const wrapper = document.createElement('div');
+      wrapper.style.overflow = 'hidden';
+      img.parentNode.insertBefore(wrapper, img);
+      wrapper.appendChild(img);
 
-    let tl = gsap
-      .timeline({
-        paused: true,
-        scrollTrigger: {
-          scroller: $scroller || document.body,
-          trigger: wrapper,
-          once: true,
-        },
-      })
-      .fromTo(
-        img,
-        { yPercent: 200 },
-        { yPercent: 0, delay: 0.5, duration: 1, ease: "power4.out" }
-      );
-  });
+      let tl = gsap
+        .timeline({
+          paused: true,
+          scrollTrigger: {
+            scroller: $scroller || document.body,
+            trigger: wrapper,
+            once: true,
+          },
+        })
+        .fromTo(
+          img,
+          { yPercent: 200 },
+          { yPercent: 0, delay: 0.5, duration: 1, ease: "power4.out" }
+        );
+    });
+  }
 }
 aboutTransformAnimation2('.section-7__card-left__top svg');
 
 function paralaxAnimationForImg(selector, $scroller) {
-  document.querySelectorAll(selector).forEach(img => {
-    img.style.overflow = 'hidden';
-    let tl = gsap
-      .timeline({
-        paused: true,
-        scrollTrigger: {
-          scroller: $scroller || document.body,
-          trigger: img,
-          scrub: 2,
-          start: '0% bottom',
-        },
-      })
-      .fromTo(
-        img.querySelector('img'),
-        { scale: 1.2 },
-        { scale: 1, duration: 2, delay: 0.5, ease: "power4.out" }
-      );
-  });
+  if (document.documentElement.clientWidth > 680) {
+    document.querySelectorAll(selector).forEach(img => {
+      img.style.overflow = 'hidden';
+      let tl = gsap
+        .timeline({
+          paused: true,
+          scrollTrigger: {
+            scroller: $scroller || document.body,
+            trigger: img,
+            scrub: 2,
+            start: '0% bottom',
+          },
+        })
+        .fromTo(
+          img.querySelector('img'),
+          { scale: 1.2 },
+          { scale: 1, duration: 2, delay: 0.5, ease: "power4.out" }
+        );
+    });
+  }
 }
 paralaxAnimationForImg('.section-7__card-right');
 

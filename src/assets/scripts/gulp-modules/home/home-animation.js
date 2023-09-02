@@ -274,24 +274,26 @@ window.addEventListener('load', () => {
   splitToLinesAndFadeUp2('.section-5__inner-bottom__card-bottom .light-text-48, .section-5__inner-bottom__card-bottom .light-text-16');
 
   function paralaxAnimation(selector, $scroller) {
-    document.querySelectorAll(selector).forEach(img => {
-      img.style.overflow = 'hidden';
-      let tl = gsap
-        .timeline({
-        paused: true,
-        scrollTrigger: {
-          scroller: $scroller || document.body,
-          trigger: img,
-          scrub: 2,
-          start: '0% bottom',
-        },
-      })
-        .fromTo(
-          img.querySelector('img'),
-          { scale: 1.2 },
-          { scale: 1, duration: 2, delay: 0.5, ease: "power4.out" }
-        );
-    });
+    if (document.documentElement.clientWidth > 680) {
+      document.querySelectorAll(selector).forEach(img => {
+        img.style.overflow = 'hidden';
+        let tl = gsap
+          .timeline({
+            paused: true,
+            scrollTrigger: {
+              scroller: $scroller || document.body,
+              trigger: img,
+              scrub: 2,
+              start: '0% bottom',
+            },
+          })
+          .fromTo(
+            img.querySelector('img'),
+            { scale: 1.2 },
+            { scale: 1, duration: 2, delay: 0.5, ease: "power4.out" }
+          );
+      });
+    }
   }
   paralaxAnimation('.section-3__card-right');
 

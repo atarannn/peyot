@@ -761,7 +761,7 @@
       overflow: hidden;
       width: 100%;
       display: none;
-      height: 414px;
+      height: 480px;
       position: relative;
 
       @include to(680px) {
@@ -771,7 +771,7 @@
       .swiper-mobile-btn {
         position: absolute;
         right: 16px;
-        top: calc(60% + 20px);
+        top: calc(60% + 15px);
         //transform: translateY(-50%);
         display: flex;
         align-items: center;
@@ -781,12 +781,14 @@
         .mobile-swiper-prev {
           svg {
             transform: rotate(-90deg);
+            animation: arrowAnimationTop 3s ease-in-out infinite;
           }
           margin-right: 8px;
         }
 
         .mobile-swiper-next {
           svg {
+            animation: arrowAnimationBottom 3s ease-in-out infinite;
             transform: rotate(90deg);
           }
         }
@@ -1459,6 +1461,10 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+
+        @include to(680px) {
+          width: 95%;
+        }
 
         .light-title {
           text-align: center;
