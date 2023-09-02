@@ -6,6 +6,7 @@ import screen5 from './home/home-section-5-text-animation';
 import screen5Slider from './home/home-section-5-slider';
 import screen6 from './home/home-section-6-text-animation';
 import galleryAnimation from './home/home-section-7-slider';
+import './home/home-animation';
 
 function homeInit() {
   screen1();

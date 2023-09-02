@@ -2,6 +2,18 @@
   .left-animation, .right-animation {
     display: none;
   }
+
+  .page__inner {
+    @include to(680px) {
+      padding: 0;
+    }
+  }
+}
+
+.page__inner {
+  @include to(680px) {
+    padding: 0 12px;
+  }
 }
 
 body{

@@ -17,3 +17,20 @@ btnNews.forEach(el => el.addEventListener('click', (event) => {
     }
   });
 }));
+
+function news(selector, $scroller) {
+  const blocks = document.querySelectorAll(selector);
+  gsap.timeline({
+    scrollTrigger: {
+      scroller: $scroller || document.body,
+      trigger: document.querySelector('.news-list'),
+      once: true,
+    },
+  })
+    .fromTo(
+      blocks,
+      { yPercent: 100, autoAlpha: 0 },
+      { yPercent: 0, autoAlpha: 1, delay: 1.4, stagger: 0.2, duration: 1, ease: "power4.out" }
+    );
+}
+news('.news-card');

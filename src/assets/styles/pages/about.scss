@@ -23,9 +23,9 @@
     &__text {
       font-family: $default-font2;
       font-weight: 300;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      //display: flex;
+      //align-items: center;
+      //justify-content: center;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -158,7 +158,9 @@
           grid-template-areas: 'num text . img';
           width: 100%;
           padding: var(--padding-20) 0;
-          border-top: 2px solid $bc;
+          //border-top: 2px solid $bc;
+          position: relative;
+
 
           @include to(1600px) {
             grid-template-columns: 15% 35% auto min-content;
@@ -173,22 +175,24 @@
             grid-template-areas: 'num text'
             'img img';
             row-gap: var(--padding-20);
-            border-top: none;
-            position: relative;
+            //border-top: none;
           }
 
           .decor {
-            display: none;
+            //display: none;
             height: 2px;
             width: 100%;
             background: $bc;
             position: absolute;
             left: 0;
             top: 0;
+            display: flex;
+            z-index: -1;
 
-            @include to(680px) {
-              display: flex;
-            }
+            //
+            //@include to(680px) {
+            //  display: flex;
+            //}
           }
 
           &:last-child {
@@ -207,6 +211,7 @@
             align-self: flex-start;
             justify-self: flex-start;
             color: $bc;
+            z-index: -1;
           }
 
           .img {
@@ -274,7 +279,8 @@
       grid-template-areas: '. right';
       gap: var(--padding-90);
       padding-bottom: var(--offset-40);
-      border-bottom: 2px solid $bc;
+      //border-bottom: 2px solid $bc;
+      position: relative;
 
       @include to(1024px) {
         grid-template-columns: 1fr;
@@ -284,22 +290,23 @@
 
       @include to(680px) {
         padding-bottom: 20px;
-        border-bottom: none;
-        position: relative;
+        //border-bottom: none;
       }
 
       .decor {
-        display: none;
+        //display: none;
+        display: flex;
+
         height: 2px;
         width: 100%;
         background: $bc;
         position: absolute;
         left: 0;
         bottom: 0;
+        z-index: -1;
 
-        @include to(680px) {
-          display: flex;
-        }
+        //@include to(680px) {
+        //}
       }
 
       .dark-text-52 {
@@ -339,7 +346,7 @@
     @include to(680px) {
       grid-template-areas: 'left'
       'right';
-      gap: var(--offset-40);
+      gap: 0px;
     }
 
     &__left {
@@ -352,6 +359,11 @@
       height: 100%;
       align-self: flex-start;
       justify-self: flex-start;
+
+      @include to(680px) {
+        margin-bottom: 20px;
+        height: auto;
+      }
 
       .dark-text-52 {
         width: 90%;
@@ -394,6 +406,7 @@
       justify-self: flex-end;
       width: 100%;
       height: 100%;
+      overflow: hidden;
 
       @include to(680px) {
         height: 450px;
@@ -494,16 +507,17 @@
       grid-template-areas: 'left'
       'right';
       padding: 0 var(--field);
+      position: relative;
     }
 
     @include to(680px) {
       gap: var(--padding-20);
       margin: 0 0 28px;
-      position: relative;
     }
 
     .decor {
-      display: none;
+      //display: none;
+      display: flex;
       height: 2px;
       width: calc(100% - var(--field)*2);
       background: $bc;
@@ -512,9 +526,8 @@
       top: 0;
       transform: translateX(-50%);
 
-      @include to(680px) {
-        display: flex;
-      }
+      //@include to(680px) {
+      //}
     }
 
 
@@ -529,7 +542,7 @@
         position: static;
         width: 100%;
         padding-top: var(--offset-60);
-        border-top: 2px solid $bc;
+        //border-top: 2px solid $bc;
       }
 
       @include to(680px) {
@@ -579,6 +592,10 @@
       justify-content: flex-start;
       width: 100%;
       margin-bottom: var(--offset-20);
+
+      & > div {
+        width: 100%;
+      }
 
       @include to(680px) {
         border-radius: 12px;
@@ -698,7 +715,7 @@
   }
 
   .section-7 {
-    overflow: hidden;
+    //overflow: hidden;
     width: 100%;
 
     &__head {
@@ -728,8 +745,16 @@
         z-index: -1;
         pointer-events: none;
 
+        @include to(1800px) {
+          font-size: 280px;
+        }
+
         @include to(1600px) {
           font-size: 240px;
+        }
+
+        @include to(1360px) {
+          font-size: 200px;
         }
 
         @include to(1024px) {
@@ -776,7 +801,15 @@
         position: relative;
         padding: 0 var(--field);
 
+        width: 100%;
+
         .light-text-52 {
+          width: 100%;
+
+          @include to(680px) {
+            font-size: 24px;
+          }
+
           &:first-letter {
             padding-left: 20%;
 
@@ -796,16 +829,11 @@
       .section-7__cards-wrapper {
         position: relative;
         display: flex;
-        overflow: hidden;
         width: 100%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: var(--padding-90) var(--field);
-
-        @include to(680px) {
-          padding: 0 var(--field);
-        }
+        padding: 0 var(--field);
 
         .section-7__cards-scroll {
           display: -webkit-box;
@@ -816,6 +844,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          position: relative;
         }
 
         .section-7__card {
@@ -830,10 +859,18 @@
           width: 100%;
           padding: var(--padding-20);
 
-          margin-bottom: var(--offset-40);
+          position: sticky;
+          position: -webkit-sticky;
+          transform-origin: top;
 
-          &:last-child {
-            margin-bottom: 0;
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+              top: calc(#{$i * 20px} + var(--header-h));
+            }
+          }
+
+          @include to(1600px) {
+            padding: 20px;
           }
 
           @include to(1024px) {
@@ -843,7 +880,7 @@
           }
 
           @include to(680px) {
-            padding: 17px;
+            padding: 16px;
             border-radius: 12px;
           }
 
@@ -944,6 +981,7 @@
         &__left {
           width: 50%;
           height: 90vh;
+          overflow: hidden;
 
           @include to(1600px) {
             height: 80vh;

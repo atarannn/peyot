@@ -49,6 +49,10 @@
         padding-top: var(--offset-24);
         transition: background .5s ease-in-out, padding-top .3s .5s ease-in-out;
 
+        @include to(680px) {
+          padding-top: 0px;
+        }
+
         .white-logo {
           opacity: 0;
           visibility: hidden;
@@ -847,7 +851,7 @@ header {
 
 .global-menu {
   width: 100vw;
-  height: calc(100vh - var(--header-h) - var(--offset-24));
+  //height: calc(100vh - var(--header-h) - var(--offset-24));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -857,9 +861,11 @@ header {
   pointer-events: none;
   z-index: 100;
   background: transparent;
+  height: 100%;
+  padding-top: calc(var(--header-h) + var(--offset-24));
 
   @include to(680px) {
-    padding-top: calc(var(--header-h) + var(--offset-24));
+    //padding-top: calc(var(--header-h) + var(--offset-24));
   }
 }
 
@@ -873,7 +879,7 @@ header {
 
   @include to(680px) {
     justify-content: flex-start;
-    padding-top: 24px;
+    //padding-top: 24px;
   }
 }
 
@@ -1127,6 +1133,11 @@ header {
   letter-spacing: -2.08px;
   text-transform: uppercase;
   white-space: nowrap;
+
+  @include to(680px) {
+    font-family: $default-font3;
+    font-weight: 500;
+  }
 }
 
 .marquee span {
@@ -1141,4 +1152,8 @@ header {
   border-radius: 100px;
   background-size: cover;
   background-position: 50% 50%;
+
+  @include to(680px) {
+    width: 200px;
+  }
 }

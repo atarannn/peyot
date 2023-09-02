@@ -2,7 +2,7 @@ export default function screen5() {
   const section5 = document.querySelector('.section-5__head');
   const screenHeight = window.innerHeight;
 
-  if (document.documentElement.clientWidth > 1023) {
+  if (document.documentElement.clientWidth > 1024) {
     gsap
       .timeline({
         scrollTrigger: {
@@ -29,6 +29,6 @@ export default function screen5() {
       })
       .fromTo('.section-5__head .top', {y: 0},{ y: -100, duration: 2 }, '<')
       .fromTo('.section-5__head .bottom', {y: 0},{ y: 100, duration: 2 }, '<')
-      .fromTo('.section-5__head .center', {height: 0},{height: screenHeight * 1.2, duration: 2 }, '<')
+      .fromTo('.section-5__head .center', {height: 0},{height: screenHeight * 1.5, duration: 1 }, '<')
   }
 }

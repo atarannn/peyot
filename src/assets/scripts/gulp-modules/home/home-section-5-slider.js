@@ -11,6 +11,19 @@ export default function screen5Slider() {
   //   }
   // })
 
+  isMobile && gsap.timeline({
+    scrollTrigger :{
+      trigger: '.section-5__inner-bottom-hor-scroll',
+      scrub: true
+    }})
+    .to('.section-5__inner-bottom__card__wrapper', {
+      scale: (e) => {
+        return gsap.utils.mapRange(0, document.querySelectorAll('.section-5__inner-bottom__card__wrapper').length - 1, 0.92, 1, e);
+        return 0.7;
+      },
+      stagger: 1 / document.querySelectorAll('.section-5__inner-bottom__card__wrapper').length,
+    });
+
   !isMobile && gsap.timeline({
     scrollTrigger: {
       trigger: '.section-5__inner-bottom__wrapper', /**общий контейнер */
@@ -38,7 +51,5 @@ export default function screen5Slider() {
         return acc;
       }, 0);
     },ease: 'none' }, '<')
-
-
 }
 

@@ -7,7 +7,7 @@ const swiper1 = new Swiper('.swiper-1', {
     prevEl: document.querySelector('[data-swiper-prev-1]'),
   },
   lazy: true,
-  speed: 400,
+  speed: 1000,
   watchSlidesVisibility: true,
 
   breakpoints: {
@@ -33,7 +33,7 @@ const big_swiper_gallery = new Swiper('.big-swiper_gallery', {
     prevEl: document.querySelector('.big-swiper-gallery-swiper-left'),
   },
 
-  speed: 400
+  speed: 1000
 });
 
 
@@ -52,11 +52,13 @@ const big_swiper_gallery = new Swiper('.big-swiper_gallery', {
 [...document.querySelectorAll('.js-open-big-gallery')].forEach(img =>
   img.addEventListener('click', () => {
     document.querySelector('.gallery-beckdrop').classList.add('active');
+    document.body.style.overflow = 'hidden';
   }),
 );
 
 document.querySelector('.js-close-big-gallery').addEventListener('click', () => {
   document.querySelector('.gallery-beckdrop').classList.remove('active');
+  document.body.style.overflow = '';
 });
 
 swiper1.controller.control = big_swiper_gallery;

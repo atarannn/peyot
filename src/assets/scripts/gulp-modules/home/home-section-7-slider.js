@@ -1,111 +1,147 @@
-export default function galleryAnimation() {
+export default function galleryAnimation($scroller) {
   const  $sliderImages = Array.from(document.querySelectorAll('.section-7__card'));
-  const cardWidth = $sliderImages[0].offsetWidth;
-  const sliderWidth = $sliderImages.reduce((acc,el) => {
-    const margin = getComputedStyle(el).marginLeft ?
-      parseInt(getComputedStyle(el).marginLeft) :
-      0;
-    acc+=el.getBoundingClientRect().width;
-    return acc;
-  }, 0);
 
-  gsap.set('.section-7', {
-    height: sliderWidth
-  });
+  if (document.documentElement.clientWidth > 1024) {
+    const cardWidth = $sliderImages[0].offsetWidth;
+    const sliderWidth = $sliderImages.reduce((acc,el) => {
+      acc+=el.getBoundingClientRect().width;
+      return acc;
+    }, 0);
 
-  let scrollTween = gsap.timeline({
-    defaults: {
-      ease: 'none'
-    },
-    scrollTrigger: {
-      trigger: '.section-7',
-      pin: '.section-7__wrapper',
-      scrub: true,
-      end: '100% bottom',
-      onLeaveBack: () => {
-        // gsap.to('.home-gallery__title, .home-gallery__remark, .home-gallery__delemiter', {
-        //   y: '0'
-        // })
-      },
-      onEnter: () => {
-        // gsap.to('.home-gallery__title, .home-gallery__remark, .home-gallery__delemiter', {
-        //   y: '50%'
-        // })
-      }
-    }
-  })
-    .fromTo('.section-7-hor-scroll', {
-      x: window.innerWidth  * 0.4
-    },{
-      x: (sliderWidth - window.innerWidth) * -1 - (window.innerWidth - cardWidth)
-    })
+    gsap.set('.section-7', {
+      height: sliderWidth
+    });
 
-  console.log(cardWidth);
-
-
-  $sliderImages.forEach(image => {
-    const imageTimeline = gsap.timeline({
-      paused: true,
-    })
-    .fromTo(image.querySelector('.section-7__card__decor img'), {
-      scale: 1
-    }, {
-      scale: 20,
-      duration: 3
-    })
-    .fromTo(image.querySelector('.section-7__card__decor'), {
-      autoAlpha: 1
-    }, {
-      autoAlpha: 0,
-      duration: 3
-    }, '<')
-    gsap.timeline({
+    let scrollTween = gsap.timeline({
       defaults: {
         ease: 'none'
       },
       scrollTrigger: {
-        trigger: image,
-        containerAnimation: scrollTween,
+        trigger: '.section-7',
+        pin: '.section-7__wrapper',
         scrub: true,
-        start: '-10% left',
-        end: '80% left',
-        markers: true,
-        onEnterBack: () => {
-          imageTimeline.play();
-        },
-        onEnter: () => {
-          imageTimeline.play();
-          // show(image);
-        },
-        onLeaveBack: () => {
-          imageTimeline.reverse();
-          // hidden(image);
-        },
-        onLeave: () => {
-          imageTimeline.reverse();
-          // hidden(image);
-        },
-      },
+        end: '100% bottom',
+      }
     })
+      .fromTo('.section-7-hor-scroll', {
+        x: (window.innerWidth * .5) - (cardWidth / 2)
+        // x: 0
+      },{
+        x: (sliderWidth - window.innerWidth) * -1 - (window.innerWidth - cardWidth) - (cardWidth * 0.3)
+      });
 
-    // function show(image) {
-    //   const img = image.querySelector('.section-7__card__decor img');
-    //   const imgBg = image.querySelector('.section-7__card__decor');
+    $sliderImages.forEach((image, index) => {
+      const imageTimeline = gsap.timeline({
+        paused: true,
+      })
+        .fromTo(image.querySelector('.section-7__card .main-img'), {
+          autoAlpha: 0,
+        }, {
+          autoAlpha: 1,
+        })
+        .fromTo(image.querySelector('.section-7__card__decor img'), {
+          scale: 1,
+        }, {
+          scale: 12,
+          duration: .5,
+        })
+        .fromTo(image.querySelector('.section-7__card__decor'), {
+          autoAlpha: 1,
+          duration: .2,
+          delay: 0,
+        }, {
+          autoAlpha: 0,
+          duration: .2,
+          delay: .5
+        }, '<');
 
-    //   img.style.transform = 'scale(20)';
-    //   img.style.transition = 'transform .3s ease-in-out';
-    //   imgBg.style.opacity = '0';
-    //   imgBg.style.transition = 'opacity .3s .3s ease-in-out';
-    // }
+      let startValue = '-10% left';
+      let endValue = '50% left';
 
-    // function hidden(image) {
-    //   const img = image.querySelector('.section-7__card__decor img');
-    //   const imgBg = image.querySelector('.section-7__card__decor');
+      // Перевірка, чи це остання картка
+      if (index === $sliderImages.length - 1) {
+        startValue = '-20% left';
+        endValue = '30% left';
+      }
 
-    //   imgBg.style.opacity = '0';
-    //   imgBg.style.transition = 'opacity .3s ease-in-out';
-    //   img.style.transform = 'scale(1)';
-    //   img.style.transition = 'transform .3s .3s ease-in-out';
-    // }
-  })
+      gsap.timeline({
+        defaults: {
+          ease: 'none'
+        },
+        scrollTrigger: {
+          trigger: image,
+          containerAnimation: scrollTween,
+          scrub: true,
+          start: startValue,
+          end: endValue,
+          onEnterBack: () => {
+            imageTimeline.play();
+          },
+          onEnter: () => {
+            imageTimeline.play();
+          },
+          onLeaveBack: () => {
+            imageTimeline.reverse();
+          },
+          onLeave: () => {
+            imageTimeline.reverse();
+          },
+        }
+      })
+    })
+  } else {
+    $sliderImages.forEach((image, index) => {
+      const imageTimeline2 = gsap.timeline({
+        paused: true,
+      })
+        .fromTo(image.querySelector('.section-7__card .main-img'), {
+          autoAlpha: 0,
+        }, {
+          autoAlpha: 1,
+        })
+        .fromTo(image.querySelector('.section-7__card__decor img'), {
+          scale: 1,
+        }, {
+          scale: 4,
+          duration: .5,
+        })
+        .fromTo(image.querySelector('.section-7__card__decor'), {
+          autoAlpha: 1,
+          duration: .2,
+          delay: 0,
+        }, {
+          autoAlpha: 0,
+          duration: .2,
+          delay: .3
+        }, '<');
+
+      let startValue2 = '0% bottom';
+      let endValue2 = '120% bottom';
+
+      gsap.timeline({
+        defaults: {
+          ease: 'none'
+        },
+        scrollTrigger: {
+          trigger: image,
+          scrub: true,
+          start: startValue2,
+          end: endValue2,
+
+          onEnterBack: () => {
+            imageTimeline2.play();
+          },
+          onEnter: () => {
+            imageTimeline2.play();
+          },
+          onLeaveBack: () => {
+            imageTimeline2.reverse();
+          },
+          onLeave: () => {
+            imageTimeline2.reverse();
+          },
+        }
+      })
+    })
+  }
 }

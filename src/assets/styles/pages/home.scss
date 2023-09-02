@@ -14,7 +14,6 @@
     align-items: center;
     justify-content: center;
     //pointer-events: none;
-    display: none;
 
     .btn-close-video {
       position: absolute;
@@ -86,6 +85,7 @@
   .section-1 {
     height: 100vh;
     position: relative;
+    overflow: hidden;
 
     @include to(1024px) {
 
@@ -172,6 +172,7 @@
           border: 1px solid rgba(255, 255, 255, 0.40);
           background: rgba(214, 210, 206, 0.01);
           backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           margin-bottom: 4px;
 
           @include to(1024px) {
@@ -330,6 +331,7 @@
           background: rgba(214, 210, 206, 0.01);
           backdrop-filter: blur(20px);
           padding: var(--offset-28);
+          -webkit-backdrop-filter: blur(20px);
 
           @include from(1023px) {
             @include btn-border-drawing(rgba(214, 210, 206, 0.01), $wc, 1px, bottom, right);
@@ -540,6 +542,7 @@
     padding: var(--top-bottom-offset) var(--field);
     position: relative;
     background: $bg;
+    overflow: hidden;
 
     img {
       height: var(--section-2-6-img-h);
@@ -608,6 +611,10 @@
       align-items: center;
       justify-content: center;
       position: relative;
+
+      @include to(680px) {
+        display: none;
+      }
     }
 
     &__cards-wrapper {
@@ -632,30 +639,24 @@
       width: 100%;
       padding: var(--padding-20);
 
-      //margin-bottom: var(--offset-40);
-
       position: sticky;
       position: -webkit-sticky;
       transform-origin: top;
 
-      @for $i from 1 through 3 {
+      @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
-          top: calc(#{$i * 20px} + var(--header-h));
+          top: calc(#{$i * 10px} + var(--header-h));
         }
       }
-      @for $i from 4 through 10 {
-        &:nth-child(#{$i}) {
-          top: calc(60px + var(--header-h));
-        }
-      }
-
-      @include to(680px) {
-        padding: 20px var(--field);
-      }
-
-      //&:last-child {
-      //  margin-bottom: 0;
+      //@for $i from 4 through 10 {
+      //  &:nth-child(#{$i}) {
+      //    top: calc(30px + var(--header-h));
+      //  }
       //}
+
+      @include to(1600px) {
+        padding: 20px;
+      }
 
       @include to(1024px) {
         flex-direction: column-reverse;
@@ -664,9 +665,9 @@
       }
 
       @include to(680px) {
-        padding: 17px;
-        //margin-bottom: 0;
+        padding: 16px;
         border-radius: 12px;
+        justify-content: flex-end;
       }
 
       &-left {
@@ -686,6 +687,7 @@
 
         @include to(680px) {
           margin-top: 20px;
+          height: auto;
         }
 
         &__top {
@@ -743,10 +745,54 @@
           width: 100%;
         }
 
+        @include to(680px) {
+          height: 60%;
+        }
+
         img {
           height: 100%;
           width: 100%;
           object-fit: cover;
+        }
+      }
+    }
+
+    &__mobile {
+      overflow: hidden;
+      width: 100%;
+      display: none;
+      height: 414px;
+      position: relative;
+
+      @include to(680px) {
+        display: flex;
+      }
+
+      .swiper-mobile-btn {
+        position: absolute;
+        right: 16px;
+        top: calc(60% + 20px);
+        //transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+
+        .mobile-swiper-prev {
+          svg {
+            transform: rotate(-90deg);
+          }
+          margin-right: 8px;
+        }
+
+        .mobile-swiper-next {
+          svg {
+            transform: rotate(90deg);
+          }
+        }
+
+        .swiper-button-disabled {
+          opacity: .5;
         }
       }
     }
@@ -867,6 +913,10 @@
   .section-5 {
     overflow: hidden;
 
+    @include to(1024px) {
+      overflow: visible;
+    }
+
     &__head {
       height: 100vh;
       width: 100%;
@@ -894,8 +944,16 @@
         z-index: -1;
         pointer-events: none;
 
+        @include to(1800px) {
+          font-size: 280px;
+        }
+
         @include to(1600px) {
           font-size: 240px;
+        }
+
+        @include to(1360px) {
+          font-size: 200px;
         }
 
         @include to(1024px) {
@@ -981,6 +1039,10 @@
           left: 0;
           top: 0;
           z-index: 1;
+
+          @include to(1024px) {
+            content: none;
+          }
         }
 
         &:after {
@@ -995,6 +1057,10 @@
           right: 0;
           top: 20%;
           z-index: 1;
+
+          @include to(1024px) {
+            content: none;
+          }
         }
 
         &__info {
@@ -1020,16 +1086,17 @@
 
           .light-text-48 {
             text-align: center;
+            margin-bottom: var(--offset-40);
           }
 
           svg {
             width: 35px;
             height: 24px;
-            margin: var(--offset-40) 0;
           }
 
           .light-text-16 {
             text-align: center;
+            margin-top: var(--offset-40);
 
             @include to(680px) {
               width: 80%;
@@ -1082,6 +1149,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            position: relative;
           }
         }
 
@@ -1111,6 +1179,10 @@
             padding: 20px;
           }
 
+          & > div {
+            width: 100%;
+          }
+
           border-radius: 40px;
           border: 3px solid $dark-brown;
           padding: var(--padding-50);
@@ -1124,6 +1196,7 @@
 
           &__wrapper {
             padding-right: 100px;
+            border-radius: 40px;
             height: fit-content;
 
             @include to(1600px) {
@@ -1132,7 +1205,22 @@
 
             @include to(1024px) {
               padding-right: 0;
-              margin-bottom: var(--offset-60);
+              //margin-bottom: var(--offset-60);
+
+              position: sticky;
+              position: -webkit-sticky;
+              transform-origin: top;
+              background: $bc;
+
+              @for $i from 1 through 10 {
+                &:nth-child(#{$i}) {
+                  top: calc(#{$i * 10px} + var(--header-h) + 40px);
+                }
+              }
+            }
+
+            @include to(680px) {
+              border-radius: 12px;
             }
 
             &:nth-child(2) {
@@ -1207,10 +1295,17 @@
               width: 100%;
               margin-bottom: var(--offset-20);
 
-
-
               &:last-child {
                 margin-bottom: 0;
+              }
+
+              @include from(1023px) {
+                &:hover {
+                  svg {
+                    transform: translateX(10px);
+                    transition: transform .5s ease-in-out;
+                  }
+                }
               }
 
               .light-text-48 {
@@ -1223,15 +1318,6 @@
 
               .light-text-20 {
                 //text-decoration: underline;
-
-                @include from(1023px) {
-                  &:hover {
-                    & + svg {
-                      transform: translateX(10px);
-                      transition: transform .5s ease-in-out;
-                    }
-                  }
-                }
               }
 
               svg {
@@ -1248,6 +1334,8 @@
   .section-6 {
     padding: var(--top-bottom-offset) var(--field);
     position: relative;
+    overflow: hidden;
+
 
     img {
       height: var(--section-2-6-img-h);
@@ -1300,10 +1388,15 @@
     display: -ms-flexbox;
     height: auto;
     width: 100%;
+    overflow: hidden;
 
     &__wrapper {
       width: 100%;
       height: 100vh;
+
+      @include to(1024px) {
+        height: auto;
+      }
     }
 
     &-hor-scroll {
@@ -1315,11 +1408,15 @@
       -ms-flex-align: stretch;
       align-items: stretch;
       padding-top: var(--header-h);
+
+      @include to(1024px) {
+        flex-direction: column;
+      }
     }
 
     &__card {
       height: calc(100vh - var(--header-h));
-      width: 70vw;
+      width: 80vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1328,6 +1425,7 @@
 
       @include to(1024px) {
         width: 100vw;
+        height: 100vh;
       }
 
       img {
@@ -1340,8 +1438,8 @@
         position: absolute;
         left: 0;
         top: 0;
-        height: 100%;
-        width: 100%;
+        height: 101%;
+        width: 101%;
         background: $bg;
         display: flex;
         align-items: center;
@@ -1356,7 +1454,7 @@
       }
 
       &__text {
-        width: 80%;
+        width: 70%;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -1383,6 +1481,7 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
+    overflow: hidden;
 
     @include to(1024px) {
       padding: var(--top-bottom-offset) var(--field) var(--top-bottom-offset-150);

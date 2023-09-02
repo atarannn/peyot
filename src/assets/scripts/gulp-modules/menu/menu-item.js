@@ -33,6 +33,13 @@ export class MenuItem {
       .set(this.DOM.marquee, {y: edge === 'top' ? '-101%' : '101%'}, 0)
       .set(this.DOM.marqueeInner, {y: edge === 'top' ? '101%' : '-101%'}, 0)
       .to([this.DOM.marquee, this.DOM.marqueeInner], {y: '0%'}, 0);
+
+    if (document.documentElement.clientWidth < 1024) {
+      gsap.timeline({defaults: this.animationDefaults})
+        .set(this.DOM.marquee, {y: edge === 'top' ? '0%' : '0%'}, 0)
+        .set(this.DOM.marqueeInner, {y: edge === 'top' ? '0%' : '0%'}, 0)
+        .to([this.DOM.marquee, this.DOM.marqueeInner], {y: '0%'}, 0);
+    }
   }
   mouseLeave(ev) {
     // find closest side to the mouse
@@ -41,6 +48,12 @@ export class MenuItem {
     gsap.timeline({defaults: this.animationDefaults})
       .to(this.DOM.marquee, {y: edge === 'top' ? '-101%' : '101%'}, 0)
       .to(this.DOM.marqueeInner, {y: edge === 'top' ? '101%' : '-101%'}, 0);
+
+    if (document.documentElement.clientWidth < 1024) {
+      gsap.timeline({defaults: this.animationDefaults})
+        .to(this.DOM.marquee, {y: edge === 'top' ? '0%' : '0%'}, 0)
+        .to(this.DOM.marqueeInner, {y: edge === 'top' ? '0%' : '0%'}, 0);
+    }
   }
   // find closest side to the mouse when entering/leaving
   findClosestEdge(ev) {
