@@ -1109,7 +1109,7 @@ header {
   align-items: center;
   display: flex;
   position: relative;
-  animation: marquee 15s ease-in-out infinite;
+  animation: marquee 15s linear infinite;
   will-change: transform;
   padding: 10px 0;
 }
