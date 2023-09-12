@@ -24,45 +24,45 @@ export default function galleryAnimation($scroller) {
       }
     })
       .fromTo('.section-7-hor-scroll', {
-        x: (window.innerWidth * .5) - (cardWidth / 2)
+        x: (window.innerWidth * .5) - (window.innerWidth - cardWidth)
         // x: 0
       },{
-        x: (sliderWidth - window.innerWidth) * -1 - (window.innerWidth - cardWidth) - (cardWidth * 0.3)
+        x: (sliderWidth - window.innerWidth) * -1 - (window.innerWidth - cardWidth)
       });
 
     $sliderImages.forEach((image, index) => {
-      const imageTimeline = gsap.timeline({
-        paused: true,
-      })
-        .fromTo(image.querySelector('.section-7__card .main-img'), {
-          autoAlpha: 0,
-        }, {
-          autoAlpha: 1,
-        })
-        .fromTo(image.querySelector('.section-7__card__decor img'), {
-          scale: 1,
-        }, {
-          scale: 12,
-          duration: .5,
-        })
-        .fromTo(image.querySelector('.section-7__card__decor'), {
-          autoAlpha: 1,
-          duration: .2,
-          delay: 0,
-        }, {
-          autoAlpha: 0,
-          duration: .2,
-          delay: .5
-        }, '<');
+      // const imageTimeline = gsap.timeline({
+      //   paused: true,
+      // })
+        // .fromTo(image.querySelector('.section-7__card .main-img'), {
+        //   autoAlpha: 0,
+        // }, {
+        //   autoAlpha: 1,
+        // })
+        // .fromTo(image.querySelector('.section-7__card__decor img'), {
+        //   scale: 1,
+        // }, {
+        //   scale: 12,
+        //   duration: .5,
+        // })
+        // .fromTo(image.querySelector('.section-7__card__decor'), {
+        //   autoAlpha: 1,
+        //   duration: .2,
+        //   delay: 0,
+        // }, {
+        //   autoAlpha: 0,
+        //   duration: .2,
+        //   delay: .5
+        // }, '<');
 
-      let startValue = '-10% left';
-      let endValue = '50% left';
+      let startValue = '-50% left';
+      let endValue = '0% left';
 
-      // Перевірка, чи це остання картка
-      if (index === $sliderImages.length - 1) {
-        startValue = '-20% left';
-        endValue = '30% left';
-      }
+      // // Перевірка, чи це остання картка
+      // if (index === $sliderImages.length - 1) {
+      //   startValue = '-20% left';
+      //   endValue = '30% left';
+      // }
 
       gsap.timeline({
         defaults: {
@@ -74,20 +74,30 @@ export default function galleryAnimation($scroller) {
           scrub: true,
           start: startValue,
           end: endValue,
-          onEnterBack: () => {
-            imageTimeline.play();
-          },
-          onEnter: () => {
-            imageTimeline.play();
-          },
-          onLeaveBack: () => {
-            imageTimeline.reverse();
-          },
-          onLeave: () => {
-            imageTimeline.reverse();
-          },
+          // onEnterBack: () => {
+          //   imageTimeline.play();
+          // },
+          // onEnter: () => {
+          //   imageTimeline.play();
+          // },
+          // onLeaveBack: () => {
+          //   imageTimeline.reverse();
+          // },
+          // onLeave: () => {
+          //   imageTimeline.reverse();
+          // },
         }
       })
+        .fromTo(image.querySelector('.section-7__card__decor img'), {
+          scale: 1,
+        }, {
+          scale: 5,
+        })
+        .fromTo(image.querySelector('.section-7__card__decor'), {
+          autoAlpha: 1,
+        }, {
+          autoAlpha: 0,
+        });
     })
   } else {
     $sliderImages.forEach((image, index) => {

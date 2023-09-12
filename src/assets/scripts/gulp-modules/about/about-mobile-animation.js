@@ -1,3 +1,21 @@
+const imgTriggerSection2 = document.querySelectorAll('.section-2__info__right__card');
+
+imgTriggerSection2.forEach((trigger) => {
+  const imgSection2 = trigger.querySelector('.item__fig');
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: trigger,
+        start: "20% bottom",
+        end: "50% bottom",
+        once: true,
+      },
+    })
+    .fromTo(imgSection2, {autoAlpha: 1}, {autoAlpha: 0, ease: 'power4.easeInOut', duration: .5}, '<')
+});
+
+
 const triggersSection2 = document.querySelectorAll('.section-2__info__right__card');
 
 triggersSection2.forEach((trigger) => {
