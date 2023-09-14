@@ -9,7 +9,9 @@ import { Menu } from './gulp-modules/menu/menu';
 import { lenis } from './modules/scroll/leniscroll';
 import "current-device";
 
-new Menu(document.querySelector('.global-menu__wrap'));
+if (document.documentElement.clientWidth > 1024) {
+  new Menu(document.querySelector('.global-menu__wrap'));
+}
 
 const scroller = lenis;
 

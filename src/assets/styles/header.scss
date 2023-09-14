@@ -913,6 +913,18 @@ header {
   transform: translateY(0);
   pointer-events: auto;
   transition-timing-function: ease;
+
+  &:hover {
+    @include to(1024px) {
+      .marquee {
+        opacity: 1;
+
+        .marquee__inner {
+          animation: marqueeMob 25s linear infinite;
+        }
+      }
+    }
+  }
 }
 
 .global-menu__item:nth-of-type(1) {
@@ -1095,12 +1107,22 @@ header {
   pointer-events: none;
   background: $bc;
   transform: translate3d(0,101%,0);
+
+  @include to(1024px) {
+    transform: translate3d(0,0,0);
+    opacity: 0;
+    overflow: visible;
+  }
 }
 
 .marquee__inner-wrap {
   height: 100%;
   width: 100%;
   transform: translate3d(0,-101%,0);
+
+  @include to(1024px) {
+    transform: translate3d(0,0,0);
+  }
 }
 
 .marquee__inner {
@@ -1112,11 +1134,22 @@ header {
   animation: marquee 15s linear infinite;
   will-change: transform;
   padding: 10px 0;
+
+  @include to(1024px) {
+    animation: none;
+    transform: translateZ(0);
+  }
 }
 
 @keyframes marquee {
   100% {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeMob {
+  100% {
+    transform: translate3d(-20%, 0, 0);
   }
 }
 

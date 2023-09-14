@@ -58,11 +58,8 @@ export default function galleryAnimation($scroller) {
       let startValue = '-50% left';
       let endValue = '0% left';
 
-      // // Перевірка, чи це остання картка
-      // if (index === $sliderImages.length - 1) {
-      //   startValue = '-20% left';
-      //   endValue = '30% left';
-      // }
+      let startValue2 = '-10% left';
+      let endValue2 = '0% left';
 
       gsap.timeline({
         defaults: {
@@ -74,18 +71,6 @@ export default function galleryAnimation($scroller) {
           scrub: true,
           start: startValue,
           end: endValue,
-          // onEnterBack: () => {
-          //   imageTimeline.play();
-          // },
-          // onEnter: () => {
-          //   imageTimeline.play();
-          // },
-          // onLeaveBack: () => {
-          //   imageTimeline.reverse();
-          // },
-          // onLeave: () => {
-          //   imageTimeline.reverse();
-          // },
         }
       })
         .fromTo(image.querySelector('.section-7__card__decor img'), {
@@ -93,6 +78,19 @@ export default function galleryAnimation($scroller) {
         }, {
           scale: 5,
         })
+
+      gsap.timeline({
+        defaults: {
+          ease: 'none'
+        },
+        scrollTrigger: {
+          trigger: image,
+          containerAnimation: scrollTween,
+          scrub: true,
+          start: startValue2,
+          end: endValue2,
+        }
+      })
         .fromTo(image.querySelector('.section-7__card__decor'), {
           autoAlpha: 1,
         }, {
@@ -125,8 +123,8 @@ export default function galleryAnimation($scroller) {
           delay: .3
         }, '<');
 
-      let startValue2 = '0% bottom';
-      let endValue2 = '120% bottom';
+      let startValue3 = '0% bottom';
+      let endValue3 = '120% bottom';
 
       gsap.timeline({
         defaults: {
@@ -135,8 +133,8 @@ export default function galleryAnimation($scroller) {
         scrollTrigger: {
           trigger: image,
           scrub: true,
-          start: startValue2,
-          end: endValue2,
+          start: startValue3,
+          end: endValue3,
 
           onEnterBack: () => {
             imageTimeline2.play();
