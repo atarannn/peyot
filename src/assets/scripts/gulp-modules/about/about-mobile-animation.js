@@ -7,12 +7,12 @@ imgTriggerSection2.forEach((trigger) => {
     .timeline({
       scrollTrigger: {
         trigger: trigger,
-        start: "20% bottom",
+        start: "100% bottom",
         end: "50% bottom",
         once: true,
       },
     })
-    .fromTo(imgSection2, {autoAlpha: 1}, {autoAlpha: 0, ease: 'power4.easeInOut', duration: .5}, '<')
+    .fromTo(imgSection2, {autoAlpha: 1}, {autoAlpha: 0, delay: 0.5, ease: 'power4.easeInOut', duration: .5}, '<')
 });
 
 
@@ -373,21 +373,21 @@ function opacityAnimationForImg(selector, $scroller) {
         { autoAlpha: 1, xPercent: 0, delay: 1, duration: 2, ease: "power4.out"}
       )
 
-    let tl = gsap
-      .timeline({
-        paused: true,
-        scrollTrigger: {
-          scroller: $scroller || document.body,
-          trigger: block,
-          scrub: 2,
-          start: '0% bottom',
-        },
-      })
-      .fromTo(
-        block,
-        { scale: 1.2 },
-        { scale: 1, duration: 2, delay: 0.5, ease: "power4.out" }
-      );
+    // let tl = gsap
+    //   .timeline({
+    //     paused: true,
+    //     scrollTrigger: {
+    //       scroller: $scroller || document.body,
+    //       trigger: block,
+    //       scrub: 2,
+    //       start: '0% bottom',
+    //     },
+    //   })
+    //   .fromTo(
+    //     block,
+    //     { scale: 1.2 },
+    //     { scale: 1, duration: 2, delay: 0.5, ease: "power4.out" }
+    //   );
   })
 }
 opacityAnimationForImg('.section-7__inner__block__left img');
