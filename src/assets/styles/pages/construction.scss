@@ -1,6 +1,4 @@
-body[id*='construction'],
-body[class*='construction'],
-#construction {
+[id*='construction'] {
   .page__wrapper {
     margin-bottom: var(--page-bottom-margin);
   }
@@ -22,16 +20,20 @@ body[class*='construction'],
       border-radius: 12px;
     }
 
-    @include from(1023px) {
-      &:hover {
-        .right {
-          img {
-            transform: scale(1.1) translateZ(0);
-            transition: .5s ease-in-out;
-          }
-        }
-      }
+    &.hide {
+      display: none;
     }
+
+    //@include from(1023px) {
+    //  &:hover {
+    //    .right {
+    //      img {
+    //        transform: scale(1.1) translateZ(0);
+    //        transition: .5s ease-in-out;
+    //      }
+    //    }
+    //  }
+    //}
 
     .left, .right {
       width: calc(50% - var(--padding-32)/2);
@@ -87,6 +89,7 @@ body[class*='construction'],
 
   .text {
     height: 40%;
+    width: 100%;
     overflow-y: scroll;
     padding-right: 10px;
     margin-bottom: var(--offset-20);
@@ -140,6 +143,54 @@ body[class*='construction'],
   }
 }
 
+
+.construction-progress__filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: var(--breadcrumbs-margin);
+
+  @include to(1024px) {
+    justify-content: flex-start;
+  }
+
+  button {
+    border: none;
+    padding: 30px 24px;
+    background: $bg;
+    border-bottom: 4px solid $wc;
+    border-top: 4px solid $wc;
+    border-right: 4px solid $wc;
+    margin-right: 0;
+
+    &:first-child {
+      border-left: 4px solid $wc;
+      border-radius: 20px 0px 0px 20px;
+    }
+
+    &:last-child {
+      border-radius: 0px 20px 20px 0px;
+    }
+
+    @include to(1024px) {
+      padding: 16px 24px;
+    }
+
+    &.active {
+      background: $wc;
+    }
+
+    span {
+      white-space: nowrap;
+      pointer-events: none;
+    }
+  }
+
+  @include to(1024px) {
+    overflow-x: scroll;
+  }
+}
 
 .construction_progress-popup-wrapper {
   position: fixed;
@@ -260,6 +311,7 @@ body[class*='construction'],
       @include to(1024px) {
         width: calc(100% - var(--offset-40));
         flex-direction: row;
+        justify-content: space-between;
         height: 40%;
         margin-bottom: 20px;
       }
@@ -275,6 +327,7 @@ body[class*='construction'],
       .head {
         @include to(1024px) {
           margin-bottom: 0;
+          width: calc(50% - var(--offset-20)/2);
         }
 
         @include to(680px) {
@@ -289,9 +342,15 @@ body[class*='construction'],
         border-radius: 40px;
         padding: var(--padding-40);
         height: 100%;
+        width: 100%;
         overflow: hidden;
 
+        @include to(1024px) {
+          width: calc(50% - var(--offset-20)/2);
+        }
+
         @include to(680px) {
+          width: 100%;
           padding: calc(var(--font-128) + var(--padding-40) + 10px) var(--padding-40) var(--padding-40);
           border-radius: 12px;
         }
@@ -301,6 +360,7 @@ body[class*='construction'],
         margin-bottom: 0;
         height: 100%;
         overflow-y: scroll;
+        width: 100%;
 
         .dark-text-16 {
           margin-bottom: var(--offset-20);

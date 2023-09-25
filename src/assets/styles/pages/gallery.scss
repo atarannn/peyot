@@ -18,6 +18,8 @@
 
       svg {
         &:first-child {
+          visibility: visible;
+
           @include to(1600px) {
             height: 80px;
             width: auto;
@@ -308,6 +310,11 @@
           border-right: none;
           border-bottom: none;
           background: $bg;
+
+          &.disabled {
+            pointer-events: none;
+            cursor: no-drop;
+          }
 
           @include to(680px) {
             min-width: 133px;
