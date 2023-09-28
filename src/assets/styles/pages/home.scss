@@ -559,9 +559,7 @@
     }
 
     &__text-animation {
-
       --offset-block: calc(var(--section-2-6-img-w)/2 + var(--field) - 30px);
-
       width: calc(100vw - var(--offset-block) - var(--field));
       text-align: left;
       position: absolute;
@@ -580,7 +578,7 @@
       }
 
       @include to(680px) {
-        font-size: 48px;
+        font-size: 44px;
         position: static;
         transform: none;
         width: 100%;
@@ -1366,7 +1364,7 @@
       }
 
       @include to(680px) {
-        font-size: 48px;
+        font-size: 44px;
         position: static;
         transform: none;
       }

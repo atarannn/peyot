@@ -31,30 +31,6 @@ export default function galleryAnimation($scroller) {
       });
 
     $sliderImages.forEach((image, index) => {
-      // const imageTimeline = gsap.timeline({
-      //   paused: true,
-      // })
-        // .fromTo(image.querySelector('.section-7__card .main-img'), {
-        //   autoAlpha: 0,
-        // }, {
-        //   autoAlpha: 1,
-        // })
-        // .fromTo(image.querySelector('.section-7__card__decor img'), {
-        //   scale: 1,
-        // }, {
-        //   scale: 12,
-        //   duration: .5,
-        // })
-        // .fromTo(image.querySelector('.section-7__card__decor'), {
-        //   autoAlpha: 1,
-        //   duration: .2,
-        //   delay: 0,
-        // }, {
-        //   autoAlpha: 0,
-        //   duration: .2,
-        //   delay: .5
-        // }, '<');
-
       let startValue = '-50% left';
       let endValue = '0% left';
 
@@ -99,32 +75,8 @@ export default function galleryAnimation($scroller) {
     })
   } else {
     $sliderImages.forEach((image, index) => {
-      const imageTimeline2 = gsap.timeline({
-        paused: true,
-      })
-        .fromTo(image.querySelector('.section-7__card .main-img'), {
-          autoAlpha: 0,
-        }, {
-          autoAlpha: 1,
-        })
-        .fromTo(image.querySelector('.section-7__card__decor img'), {
-          scale: 1,
-        }, {
-          scale: 4,
-          duration: .5,
-        })
-        .fromTo(image.querySelector('.section-7__card__decor'), {
-          autoAlpha: 1,
-          duration: .2,
-          delay: 0,
-        }, {
-          autoAlpha: 0,
-          duration: .2,
-          delay: .3
-        }, '<');
-
-      let startValue3 = '0% bottom';
-      let endValue3 = '120% bottom';
+      let startValue3 = '20% bottom';
+      let endValue3 = '50% bottom';
 
       gsap.timeline({
         defaults: {
@@ -135,21 +87,22 @@ export default function galleryAnimation($scroller) {
           scrub: true,
           start: startValue3,
           end: endValue3,
-
-          onEnterBack: () => {
-            imageTimeline2.play();
-          },
-          onEnter: () => {
-            imageTimeline2.play();
-          },
-          onLeaveBack: () => {
-            imageTimeline2.reverse();
-          },
-          onLeave: () => {
-            imageTimeline2.reverse();
-          },
         }
       })
+        .fromTo(image.querySelector('.section-7__card__decor img'), {
+          scale: 1,
+          transition: 1,
+        }, {
+          scale: 5,
+          transition: 1,
+        })
+        .fromTo(image.querySelector('.section-7__card__decor'), {
+          autoAlpha: 1,
+          transition: 1,
+        }, {
+          autoAlpha: 0,
+          transition: 1,
+        });
     })
   }
 }
