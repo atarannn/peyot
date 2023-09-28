@@ -15,11 +15,16 @@
       position: relative;
       cursor: pointer;
       pointer-events: all;
+      opacity: 1;
+      visibility: visible;
+      transform: translateZ(0);
+      z-index: 3;
 
       svg {
-        &:first-child {
-          visibility: visible;
+        visibility: visible;
+        opacity: 1;
 
+        &:first-child {
           @include to(1600px) {
             height: 80px;
             width: auto;
@@ -60,6 +65,74 @@
       margin-left: auto;
     }
   }
+
+  .swiper-btn-wrapper-2 {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+
+    .swiper-prev, .swiper-next {
+      position: relative;
+      cursor: pointer;
+      pointer-events: all;
+      opacity: 1;
+      visibility: visible;
+      transform: translateZ(0);
+      z-index: 3;
+
+      svg {
+        visibility: visible;
+        opacity: 1;
+
+        &:first-child {
+          @include to(1600px) {
+            height: 80px;
+            width: auto;
+          }
+        }
+      }
+
+
+      &.swiper-button-disabled {
+        display: none;
+      }
+
+      .icon--arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 28px;
+        height: 28px;
+        fill: $bc;
+
+        @include to(1600px) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .swiper-prev {
+      margin-right: auto;
+
+      .icon--arrow {
+        transform: translateX(-50%) translateY(-50%) rotate(180deg);
+      }
+    }
+
+    .swiper-next {
+      margin-left: auto;
+    }
+  }
+
 
   .gallery-beckdrop, .gallery-beckdrop2 {
     height: 100vh;
