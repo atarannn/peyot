@@ -75,8 +75,8 @@ export default function galleryAnimation($scroller) {
     })
   } else {
     $sliderImages.forEach((image, index) => {
-      let startValue3 = '20% bottom';
-      let endValue3 = '50% bottom';
+      let startValue3 = '10% bottom';
+      let endValue3 = '90% bottom';
 
       gsap.timeline({
         defaults: {
@@ -96,6 +96,21 @@ export default function galleryAnimation($scroller) {
           scale: 5,
           transition: 1,
         })
+
+      let startValue4 = '60% bottom';
+      let endValue4 = '90% bottom';
+
+      gsap.timeline({
+        defaults: {
+          ease: 'none'
+        },
+        scrollTrigger: {
+          trigger: image,
+          scrub: true,
+          start: startValue4,
+          end: endValue4,
+        }
+      })
         .fromTo(image.querySelector('.section-7__card__decor'), {
           autoAlpha: 1,
           transition: 1,
